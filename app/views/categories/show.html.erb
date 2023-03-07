@@ -1,8 +1,34 @@
 <h1><%= @category.name %></h1>
 
-<% @category.questions.each do |question| %>
-  <p><%= question.content %></p>
-  <% question.answers.each do |answer| %>
-    <p><%= answer.content %>, <%= answer.score %></p>
-  <% end %>
-<% end %>
+<div data-controller="form">
+  <div>
+    <% count=1 %>
+    <% @category.questions.each do |question| %>
+      <p><%= question.content %></p>
+      <% question.answers.each do |answer| %>
+            <p><%= answer.content %> :
+            <input type="checkbox" class="exclusive" data-linked=<%= "Q#{question.id}"%> data-form-target=<%="kw#{count}"%>>
+            <% count+=1 %>
+            </p>
+      <% end %>
+    <% end %>
+    <button id="button" type="submit" data-action="click->form#result">Submit</button>
+  </div>
+  <div data-form-target="result"></div>
+</div>
+<h1><%= @results %></h1>
+
+
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="http://code.jquery.com/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script>
+  $(function() {
+    $('.exclusive').mousedown(function() {
+      var linked = $(this).data('linked');
+      $(':checkbox[data-linked="' + linked + '"]').prop('checked', false);
+    });
+  });
+</script>
