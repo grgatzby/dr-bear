@@ -1,0 +1,8 @@
+<h1>All categories</h1>
+  <div class="container">
+    <div>
+      <% @categories.each do |category|  %>
+        <%= render "category", category: category %>
+      <% end %>
+    </div>
+  </div>

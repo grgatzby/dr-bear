@@ -1,0 +1,8 @@
+<h1><%= @category.name %></h1>
+
+<% @category.questions.each do |question| %>
+  <p><%= question.content %></p>
+  <% question.answers.each do |answer| %>
+    <p><%= answer.content %>, <%= answer.score %></p>
+  <% end %>
+<% end %>
