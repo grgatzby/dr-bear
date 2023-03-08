@@ -1,34 +1,14 @@
-<h1><%= @category.name %></h1>
+<div class="container">
+  <h1><%= @category.name %></h1>
 
-<div data-controller="form">
-  <div>
-    <% count=1 %>
+  <%= form_tag(action: "create", method: "get") do %>
     <% @category.questions.each do |question| %>
-      <p><%= question.content %></p>
-      <% question.answers.each do |answer| %>
-            <p><%= answer.content %> :
-            <input type="checkbox" class="exclusive" data-linked=<%= "Q#{question.id}"%> data-form-target=<%="kw#{count}"%>>
-            <% count+=1 %>
-            </p>
+        <p><%= question.content %></p>
+        <% question.answers.each do |answer| %>
+          <%= radio_button_tag("cat#{@category.id}q#{question.id}", "c=#{@category.id}q=#{question.id}a=#{answer.id}s=#{answer.score}") %>
+          <%= label_tag("A#{answer.id}", answer.content) %></p>
+        <% end %>
       <% end %>
-    <% end %>
-    <button id="button" type="submit" data-action="click->form#result">Submit</button>
-  </div>
-  <div data-form-target="result"></div>
+    <%= submit_tag("Submit") %>
+  <% end %>
 </div>
-<h1><%= @results %></h1>
-
-
-
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="http://code.jquery.com/jquery.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-<script>
-  $(function() {
-    $('.exclusive').mousedown(function() {
-      var linked = $(this).data('linked');
-      $(':checkbox[data-linked="' + linked + '"]').prop('checked', false);
-    });
-  });
-</script>
