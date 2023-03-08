@@ -7,7 +7,7 @@
         <% question.answers.each do |answer| %>
           <%= radio_button_tag("cat#{@category.id}q#{question.id}", answer.score) %>
           <%= hidden_field_tag(:category, @category.id) %>
-          <%= label_tag("A#{answer.id}", answer.content) %></p>
+          <%= label_tag("cat#{@category.id}q#{question.id}a#{answer.id}", answer.content) %></p>
         <% end %>
       <% end %>
     <%= submit_tag("Submit") %>

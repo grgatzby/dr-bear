@@ -13,15 +13,15 @@ class CategoriesController < ApplicationController
 
   def create
     #gest the results from the questions form
-    # params["cat1q1"] => => "c=1q=1a=1s=1"
+    # params["cat1q1"] => score for this category/question, string format
     @category = Category.find(params[:category].to_i)
     @questions = @category.questions
+    @max_category_score = 0
     @category_score = 0
     @questions.each do |question|
       @category_score += params["cat#{params[:category]}q#{question.id}"].to_i
+      max_question_score = question.answers.map{|answer| answer.score}.max
+      @max_category_score += max_question_score
     end
-    raise
-
   end
-
 end
