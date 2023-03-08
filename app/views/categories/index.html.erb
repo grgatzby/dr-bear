@@ -1,6 +1,9 @@
   <div class="container">
     <div class="centered-container">
-      <h1>Choose one or more categories for your Quiz.</h1>
+      <div class="text-container">
+        <%= link_to "Back", root_path, class: "btn btn-primary"%>
+        <h1>Choose one or more categories for your Quiz.</h1>
+      </div>
       <div class="categories-container">
         <% @categories.each do |category|  %>
           <%= render "category", category: category %>

@@ -30,3 +30,31 @@ a {
   // display: flex;
   // justify-content: space-between;
 }
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 5px 24px;
+  border-radius: 30px;
+  position: absolute;
+  left: 17%;
+  transform: translateX(-50%);
+
+  :hover {
+    box-shadow: 1px 1px 3px 3px black;
+    background-color: aqua;
+  }
+}
+
+.btn-success {
+  padding: 8px 160px;
+  border-radius: 30px;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}
