@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_102358) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_08_104100) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_102358) do
     t.index ["category_id"], name: "index_questions_on_category_id"
   end
 
+  create_table "results", force: :cascade do |t|
+    t.integer "total_score"
+    t.float "max_score"
+    t.bigint "category_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_results_on_category_id"
+    t.index ["user_id"], name: "index_results_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -72,4 +83,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_102358) do
   add_foreign_key "category_nutrients", "categories"
   add_foreign_key "category_nutrients", "nutrients"
   add_foreign_key "questions", "categories"
+  add_foreign_key "results", "categories"
+  add_foreign_key "results", "users"
 end
