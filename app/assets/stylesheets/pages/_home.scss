@@ -4,7 +4,8 @@
   position: fixed;
   top: -9%;
   width: 100vw;
-  height: 770px;
+  // height: 770px;
+  height: 100%;
   background-size: cover;
   background-position-y: top;
   object-fit: cover;
@@ -24,13 +25,18 @@
 
   img {
     position: relative;
-    width: 170px;
+    width: 11.4%;
     height: auto;
-    top: 34.1%;
-    left: 5.9%;
+    top: 12px;
+    left: 4.5%;
     transform: rotate(3.9deg);
-    opacity: 60%;
+    opacity: 57%;
   }
+}
+
+.content-home {
+  position: relative;
+  top: 245px;
 }
 
 .buttons {
@@ -39,8 +45,7 @@
   text-align: center;
   position: relative;
   display: flex column;
-  top: 245px;
-  left: 255px;
+  left: 15.75%;
 
   a.btn {
     width: 150px;
@@ -88,12 +93,71 @@
 
 
 @media (max-width: 1350px) {
-  .banner>img {
-    width: 170px;
-    top: 34.1%;
+    .banner {
+      img {
+      width: 150px;
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .banner {
+    img {
+    width: 140px;
+  }
+}
+}
+
+@media (max-width: 1100px) {
+  .banner {
+    img {
+    width: 130px;
     left: 3%;
   }
 }
+}
+
+@media (max-width: 900px) {
+  .banner {
+    img {
+      // REMOVE AND CENTER EVERYTHING
+    width: 130px;
+    left: 3%;
+  }
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media (max-width: 1260px) {
   .banner {
