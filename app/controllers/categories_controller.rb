@@ -23,5 +23,8 @@ class CategoriesController < ApplicationController
       max_question_score = question.answers.map{|answer| answer.score}.max
       @max_category_score += max_question_score
     end
+    #check @max_category_score against nutrients [min_score , max_score]
+    # in private method?
+    # redirect_to next category
   end
 end
