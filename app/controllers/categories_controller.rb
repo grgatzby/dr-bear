@@ -23,14 +23,15 @@ class CategoriesController < ApplicationController
       max_question_score = question.answers.map{|answer| answer.score}.max
       @max_category_score += max_question_score
     end
-    #store in dummy_user
-    dummy_user = User.find(1)
-    category_result = Result.new(
+    dummy_user = User.find_by(first_name: "Crash", last_name: "Dummy")
+
+    category_result = Result.create!(
       total_score: @category_score,
-      max_score: @max_category_score
+      max_score: @max_category_score,
+      user_id: dummy_user.id,
+      category_id: @category.id
     )
-    category_result.category = @category
-    raise
+
     #check @max_category_score against nutrients [min_score , max_score]
     # in private method?
     # redirect_to next category
