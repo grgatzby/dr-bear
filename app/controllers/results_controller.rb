@@ -1,23 +1,18 @@
 class ResultsController < ApplicationController
 
   def index
+    cat_nutrients = CategoryNutrient.all
+    result = Result.find(9)
+    @category = Category.find(result.category_id)
+
+    @nutrient = []
+    cat_nutrients.where(category_id: result.category_id).where("min_score <= ?", result.total_score).where("max_score >= ?", result.total_score).each { |element| @nutrient << element.nutrient_id }
+
+
   end
 
+
   def show
-    raise
-    cat_nutrients = CategoryNutrient.all
-    result = category.result
 
-
-    @cat_nutri.each do |element|
-      nutrient = []
-
-      if cat_nutrients.where(category_id: result.category_id) &&
-         cat_nutrients.where(min_score: result.total_score) &&
-         cat_nutrients.where(max_score: result.total_score)
-
-         nutrient << element.nutrient_id
-      end
-    end
   end
 end
