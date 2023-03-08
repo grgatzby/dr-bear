@@ -1,0 +1,26 @@
+.category-btn {
+  width: 185px;
+  border: 2px solid black;
+  border-radius: 40px;
+  text-align: center;
+  background-color: white;
+  padding-top: 5px;
+
+  a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+.category-btn:hover {
+  border: solid 1px lightgrey;
+  box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+}
+
+.categories-container {
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 450px;
+  display: flex;
+  justify-content: space-between;
+}
