@@ -13,7 +13,7 @@ class CategoriesController < ApplicationController
 
   def create
     #gest the results from the questions form
-    # params["cat1q1"] => score for this category/question, string format
+    # params["cat[:id]q[:id]"] => score for this category_id/question_id, in string format
     @category = Category.find(params[:category].to_i)
     @questions = @category.questions
     @max_category_score = 0
@@ -23,6 +23,14 @@ class CategoriesController < ApplicationController
       max_question_score = question.answers.map{|answer| answer.score}.max
       @max_category_score += max_question_score
     end
+    #store in dummy_user
+    dummy_user = User.find(1)
+    category_result = Result.new(
+      total_score: @category_score,
+      max_score: @max_category_score
+    )
+    category_result.category = @category
+    raise
     #check @max_category_score against nutrients [min_score , max_score]
     # in private method?
     # redirect_to next category
