@@ -1,1 +1,149 @@
 // Specific CSS for your home-page
+
+.banner {
+  position: fixed;
+  top: -9%;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position-y: top;
+  object-fit: cover;
+  z-index: 1; /* set a high z-index to ensure the banner is on top */
+  border-bottom: solid 1px grey;
+
+  h1 {
+    position: relative;
+    top: 30%;
+    left: 12%;
+    font-size: 3rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #342e6f;
+    opacity: 90%;
+    text-shadow: 0.1px 0.1px 1px #000000;;
+  }
+
+  img {
+    position: relative;
+    width: 170px;
+    height: auto;
+    top: 34.1%;
+    left: 5.9%;
+    transform: rotate(3.9deg);
+    opacity: 60%;
+  }
+}
+
+.buttons {
+  width: fit-content;
+  height: fit-content;
+  text-align: center;
+  position: relative;
+  display: flex column;
+  top: 245px;
+  left: 255px;
+
+  a.btn {
+    width: 150px;
+    height: 60px;
+    border-radius: 30px;
+    background-color: #1F8A70;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  a.btn:hover {
+    //background-color: rgb(64, 69, 41);
+    background-color: #1f7a64;
+    //border: solid 2px grey;
+    opacity: 90%;
+  }
+
+  a.link-underline {
+    color: grey;
+    margin-top: 20px;
+    font-size: 0.9rem;
+  }
+
+  a.link-underline:hover {
+    color: darkgray;
+  }
+}
+
+.disclaimer-banner {
+  position: absolute;
+  left: 28%;
+  bottom: -1%;
+  opacity: 20%;
+  font-size: 0.8rem;
+}
+
+
+
+
+@media (max-width: 1350px) {
+  .banner>img {
+    width: 170px;
+    top: 34.1%;
+    left: 3%;
+  }
+}
+
+@media (max-width: 1260px) {
+  .banner {
+    background-position-x: left;
+  }
+}
+
+
+@media (max-width: 1000px) {
+
+  .banner>img {
+    width: 170px;
+    top: 34.1%;
+    left: 0%;
+  }
+}
+
+@media (max-width: 900px) {
+  .banner>img {
+    width: 130px;
+    top: 34.1%;
+    left: 2%;
+  }
+
+}
+
+@media (max-width: 800px) {
+  .banner {
+
+    img {
+    width: 120px;
+    top: 34.1%;
+    left: 2%;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .banner {
+
+    img {
+      display: none;
+    }
+
+    h1 {
+      font-size: 2.7rem;
+    }
+  }
+}
