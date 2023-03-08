@@ -26,5 +26,6 @@ class CategoriesController < ApplicationController
     #check @max_category_score against nutrients [min_score , max_score]
     # in private method?
     # redirect_to next category
+    raise
   end
 end
