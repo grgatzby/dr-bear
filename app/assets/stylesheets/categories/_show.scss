@@ -4,7 +4,12 @@
   border-radius: 40px;
   text-align: center;
   background-color: white;
-  padding-top: 5px;
+  padding-top: 3px;
+}
+
+.category-btn:hover {
+  border: solid 1px lightgrey;
+  box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
 }
 
 a {
@@ -16,15 +21,30 @@ a {
   }
 }
 
-.category-btn:hover {
-  border: solid 1px lightgrey;
-  box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
-}
-
 .categories-container {
   padding-top: 20px;
   margin: 0 auto;
   width: 450px;
   display: flex;
   justify-content: space-between;
+}
+
+
+
+.confirm-container{
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 450px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.confirm-btn {
+  width: 150px;
+  border: 2px solid black;
+  border-radius: 40px;
+  text-align: center;
+  background-color: white;
+  padding-top: 3px;
 }
