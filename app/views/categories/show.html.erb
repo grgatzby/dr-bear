@@ -1,8 +1,16 @@
-<h1><%= @category.name %></h1>
-
-<% @category.questions.each do |question| %>
-  <p><%= question.content %></p>
-  <% question.answers.each do |answer| %>
-    <p><%= answer.content %>, <%= answer.score %></p>
-  <% end %>
-<% end %>
+<div class="container">
+  <h1><%= @category.name %></h1>
+  <div>
+    <%= form_tag(action: "create", method: "get") do %>
+      <% @category.questions.each do |question| %>
+          <p><%= question.content %></p>
+          <% question.answers.each do |answer| %>
+            <%= radio_button_tag("cat#{@category.id}q#{question.id}", answer.score) %>
+            <%= hidden_field_tag(:category, @category.id) %>
+            <%= label_tag("cat#{@category.id}q#{question.id}a#{answer.id}", answer.content) %>
+          <% end %>
+        <% end %>
+      <p><%= submit_tag("Submit") %></p>
+    <% end %>
+  </div>
+</div>
