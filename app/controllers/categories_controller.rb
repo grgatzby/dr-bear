@@ -14,6 +14,12 @@ class CategoriesController < ApplicationController
   def create
     #gest the results from the questions form
     # params["cat1q1"] => => "c=1q=1a=1s=1"
+    @category = Category.find(params[:category].to_i)
+    @questions = @category.questions
+    @category_score = 0
+    @questions.each do |question|
+      @category_score += params["cat#{params[:category]}q#{question.id}"].to_i
+    end
     raise
 
   end
