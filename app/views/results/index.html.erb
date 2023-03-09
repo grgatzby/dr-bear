@@ -1,1 +1,13 @@
 <h1>Results page</h1>
+
+<div>
+<p>Category name:<%= @category.name %></p>
+<p>Category description:<%= @category.description %></p>
+</div>
+<div>
+<% @nutrient.each do |nutrient| %>
+<% nutri = Nutrient.find(nutrient) %>
+<p>Nutrient name:<%= nutri.name %></p>
+<p>Nutrient description:<%= nutri.description %></p>
+<% end %>
+</div>
