@@ -1,16 +1,35 @@
-<div class="container">
-  <h1><%= @category.name %></h1>
-  <div>
-    <%= form_tag(action: "create", method: "get") do %>
-      <% @category.questions.each do |question| %>
-          <p><%= question.content %></p>
-          <% question.answers.each do |answer| %>
-            <%= radio_button_tag("cat#{@category.id}q#{question.id}", answer.score) %>
-            <%= hidden_field_tag(:category, @category.id) %>
-            <%= label_tag("cat#{@category.id}q#{question.id}a#{answer.id}", answer.content) %>
+<div class="questions-show">
+  <div class="black-banner">
+    <img src="<%= image_path 'side-banner1.jpg' %>" alt="">
+  </div>
+  <div class="container-questions">
+    <div class= "category-name">
+      <h1><%= @category.name %></h1>
+    </div>
+    <div class="form-questions">
+      <%= form_tag(action: "create", method: "get") do %>
+        <p></p>
+        <hr>
+        <% @category.questions.each do |question| %>
+            <p><%= question.content %></p>
+            <% question.answers.each_with_index do |answer, index| %>
+              <div class="form-check">
+                <%= radio_button_tag("cat#{@category.id}q#{question.id}",
+                                     answer.score,
+                                     index == 0,
+                                     class: "form-check-input") %>
+                <%= label_tag("cat#{@category.id}q#{question.id}a#{answer.id}",
+                               answer.content,
+                               class: "form-check-label") %>
+              </div>
+              <%= hidden_field_tag(:category, @category.id) %>
+            <% end %>
+              <hr>
           <% end %>
-        <% end %>
-      <p><%= submit_tag("Submit") %></p>
-    <% end %>
+          <div>
+            <p><%= submit_tag("Submit", class: "btn btn-primary") %></p>
+          </div>
+      <% end %>
+    </div>
   </div>
 </div>

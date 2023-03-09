@@ -10,7 +10,12 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body><%= render "shared/navbar" %>
+  <body>
+  <% if params[:controller] == "pages"  %>
+      <%= render "shared/navbar" %>
+    <% else %>
+      <%= render "shared/navbar2" %>
+    <% end %>
 <%= render "shared/flashes" %>
 
     <%= yield %>
