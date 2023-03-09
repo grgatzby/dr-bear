@@ -1,14 +1,40 @@
-<h1>Results page</h1>
 
+<div class="results-container">
+  <h1 id="title-all-results">Your Results</h1>
 
-<div>
-<p>Category name:<%= @category.name %></p>
-<p>Category description:<%= @category.description %></p>
-</div>
-<div>
-<% @nutrient.each do |nutrient| %>
-<% nutri = Nutrient.find(nutrient) %>
-<p>Nutrient name:<%= nutri.name %></p>
-<p>Nutrient description:<%= nutri.description %></p>
-<% end %>
+  <div class="results-content-container">
+    <div class="category-container">
+      <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?sleep" alt=""></div>
+      <div class="category-content-text">
+        <div class="category-name-container">
+          <p><%= @category.name %></p>
+        </div>
+        <div class="category-description-container">
+          <p><%= @category.description %></p>
+        </div>
+      </div>
+    </div>
+  <% rand_image =  "https://source.unsplash.com/random/200×200/?herb"%>
+    <div class="nutrients-container">
+      <div class="advice-text-container">
+        <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISSAPEAR %>
+        <h3 id="title-nutrient-results">Based on your results, we recommend the following nutrients</h3>
+      </div>
+      <% @nutrient.each do |nutrient| %>
+      <% nutri = Nutrient.find(nutrient) %>
+      <div class="nutrients-content-container">
+        <div class="img-nutrient-container"><img src="<%= rand_image %>" alt=""></div>
+        <div class="nutrient-content-text">
+          <div class="nutrient-name-container">
+            <p><%= nutri.name %></p>
+          </div>
+          <div class="nutrient-description-container">
+            <p><%= nutri.description %></p>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+
 </div>
