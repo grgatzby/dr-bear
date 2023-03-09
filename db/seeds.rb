@@ -72,8 +72,8 @@ questions = [
   { category_id: id_cat[1], content: "Do you feel stressed on a daily basis?" },
   { category_id: id_cat[1], content: "Do you get agitated easily over things outside your control?" },
   { category_id: id_cat[1], content: "Do you find it difficult to relax?" },
-  { category_id: id_cat[1], content: "Do you get angry over small things?" }
 ]
+# { category_id: id_cat[1], content: "Do you get angry over small things?" }
 
 id_q = []
 questions.each do |question|
@@ -154,9 +154,9 @@ category_nutrients = [
   { category_id: id_cat[0], nutrient_id: id_nutr[2], min_score: 1, max_score: 3 },
   { category_id: id_cat[0], nutrient_id: id_nutr[3], min_score: 2, max_score: 3 },
 
-  { category_id: id_cat[1], nutrient_id: id_nutr[4], min_score: 1, max_score: 5 },
-  { category_id: id_cat[1], nutrient_id: id_nutr[5], min_score: 2, max_score: 5 },
-  { category_id: id_cat[1], nutrient_id: id_nutr[6], min_score: 1, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[4], min_score: 1, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[5], min_score: 2, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[6], min_score: 1, max_score: 3 },
   { category_id: id_cat[1], nutrient_id: id_nutr[7], min_score: 1, max_score: 2 }
 ]
 
