@@ -12,20 +12,36 @@
     </div>
 
 
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to root_path, class: "navbar-brand" do %>
       <%= image_tag "Logo-lightbg.png" %>
     <% end %>
+
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <%= image_tag "", class: "fa-solid fa-bars d-none d-md-inline", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <li class="nav-item dropdown">
-            <%= image_tag "", class: "fa-solid fa-bars", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "Another action", "#", class: "dropdown-item" %>
+              <%= link_to "Shop", "#", class: "dropdown-item" %>
+              <%= link_to "About", "#", class: "dropdown-item" %>
+              <%= link_to "Learn", "#", class: "dropdown-item" %>
+              <hr>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
+          </li>
+          <li class="nav-item d-inline d-sm-none">
+            <%= link_to "Shop", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item d-inline d-sm-none">
+            <%= link_to "About", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item d-inline d-sm-none">
+            <%= link_to "Learn", "#", class: "nav-link" %>
+          </li>
+          <li class="nav-item d-inline d-sm-none">
+            <hr>
+            <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link" %>
           </li>
         <% else %>
           <li class="nav-item">

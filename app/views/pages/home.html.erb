@@ -1,16 +1,20 @@
 
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path 'banner-bear.jpg' %>')">
-  <h1>Your health personalized</h1>
-  <h1>to your needs.</h1>
-  <div class="content-home">
-    <img src="<%= image_path 'arrow-1.png' %>" alt="">
-    <div class="buttons">
-      <a href="" class="btn">Do the Quiz</a>
-      <a href="" class="link-underline">Browse Products</a>
+<div class="home">
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path 'banner-bear.jpg' %>')">
+    <h1>Your health personalized</h1>
+    <h1>to your needs.</h1>
+    <div class="content-home">
+      <img src="<%= image_path 'arrow-1.png' %>" alt="">
+      <div class="buttons">
+        <%= link_to "Do the Quiz", categories_path, class: "btn" %>
+        <a href="" class="link-underline">Browse Products</a>
+      </div>
     </div>
+    <p class="disclaimer-banner">Disclaimer** this webpage loads better on your Google Chrome browser.</p>
   </div>
-  <p class="disclaimer-banner">Disclaimer** this webpage loads better on your Google Chrome browser.</p>
+
+  <div class="infos">
+    <h1>halo</h1>
+    <h1>halo</h1>
+  </div>
 </div>
-
-
-<h1><%= link_to "Take the quiz", categories_path%></h1>

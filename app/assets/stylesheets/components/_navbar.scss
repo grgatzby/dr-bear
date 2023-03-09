@@ -44,8 +44,51 @@
 }
 
 .navbar {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   z-index: 2; /* set a higher z-index value for the navbar */
+}
+
+@media only screen and (max-width: 575px) {
+
+  .fa-bars {
+    display: none;
+  }
+  .navbar-row {
+    display: none;
+  }
+  .navbar-brand {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+  }
+  .navbar-toggler {
+    display: block;
+  }
+  .collapse {
+    position: fixed;
+    top: 70px; /* adjust the top position to your preference */
+    left: -200px; /* set the initial left position */
+    width: 200px; /* adjust the width to your preference */
+    background-color: #fff;
+    z-index: 9999;
+    padding-top: 10px;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: left 0.3s ease-in-out;
+  }
+  .collapse.show {
+    left: 0;
+  }
+  .navbar-nav {
+    flex-direction: column;
+  }
+  .nav-item {
+    margin-bottom: 10px;
+  }
+  .dropdown-menu-end {
+    right: 0;
+    left: auto;
+  }
 }
