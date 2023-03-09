@@ -22,7 +22,7 @@
       </div>
       <% @nutrient.each do |nutrient| %>
       <% nutri = Nutrient.find(nutrient) %>
-      <div class="nutrients-content-container">
+      <div class="nutrients-content-container" onclick="window.location='https://en.wikipedia.org/wiki/<%= nutri.name %>';">
         <div class="img-nutrient-container"><img src="<%= rand_image %>" alt=""></div>
         <div class="nutrient-content-text">
           <div class="nutrient-name-container">
