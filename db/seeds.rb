@@ -17,8 +17,6 @@ if Rails.env.development?
   User.destroy_all
 end
 
-
-
 puts "-------------------"
 puts "seeding Users"
 puts "-------------------"
@@ -29,8 +27,6 @@ User.create!(
   email: "crash@dummy.org",
   password: "123456"
 )
-
-
 
 10.times do |i|
   User.create(
@@ -45,7 +41,7 @@ puts "-------------------"
 puts "seeding Categories"
 puts "-------------------"
 
-# implement category names and descriptions
+# input category names and descriptions
 categories = [
   { name: "Sleep", description: Faker::Lorem.paragraph },
   { name: "Stress", description: Faker::Lorem.paragraph }
@@ -64,7 +60,7 @@ puts "-------------------"
 puts "seeding Questions"
 puts "-------------------"
 
-# implement questions content for each category
+# input questions content for each category
 questions = [
   { category_id: id_cat[0], content: "Do you sleep through the night?" },
   { category_id: id_cat[0], content: "Do you have trouble falling asleep?" },
@@ -89,7 +85,7 @@ puts "-------------------"
 puts "seeding Answers"
 puts "-------------------"
 
-# implement answers content and score for each category/question
+# input answers content and score for each category/question
 answers = [
   { category_id: id_cat[0], question_id: id_q[0], content: "Yes", score: 1 },
   { category_id: id_cat[0], question_id: id_q[0], content: "No", score: 0 },
@@ -104,7 +100,9 @@ answers = [
   { category_id: id_cat[1], question_id: id_q[4], content: "Yes", score: 1 },
   { category_id: id_cat[1], question_id: id_q[4], content: "No", score: 0 },
   { category_id: id_cat[1], question_id: id_q[5], content: "Yes", score: 1 },
-  { category_id: id_cat[1], question_id: id_q[5], content: "No", score: 0 }
+  { category_id: id_cat[1], question_id: id_q[5], content: "No", score: 0 },
+  { category_id: id_cat[1], question_id: id_q[6], content: "Yes", score: 1 },
+  { category_id: id_cat[1], question_id: id_q[6], content: "No", score: 0 }
 ]
 
 answers.each do |answer|
@@ -122,7 +120,11 @@ puts "-------------------"
 # implement nutrients name and description
 nutrients = [
   { name: "Iron", description: Faker::Lorem.paragraph },
-  { name: "Magnesium", description: Faker::Lorem.paragraph }
+  { name: "Magnesium", description: Faker::Lorem.paragraph },
+  { name: "Melatonin", description: Faker::Lorem.paragraph },
+  { name: "Omega-3", description: Faker::Lorem.paragraph },
+  { name: "Vitamin D", description: Faker::Lorem.paragraph }
+
 ]
 id_nutr = []
 
@@ -137,12 +139,19 @@ end
 puts "-------------------"
 puts "seeding Category_Nutrients"
 puts "-------------------"
-# implement category_nutrients min_score and max_score
+# input category_nutrients min_score and max_score
 category_nutrients = [
   { category_id: id_cat[0], nutrient_id: id_nutr[0], min_score: 1, max_score: 2 },
   { category_id: id_cat[0], nutrient_id: id_nutr[1], min_score: 2, max_score: 2 },
+  { category_id: id_cat[0], nutrient_id: id_nutr[2], min_score: 2, max_score: 2 },
+  { category_id: id_cat[0], nutrient_id: id_nutr[3], min_score: 2, max_score: 2 },
+  { category_id: id_cat[0], nutrient_id: id_nutr[4], min_score: 2, max_score: 2 },
+
   { category_id: id_cat[1], nutrient_id: id_nutr[0], min_score: 1, max_score: 1 },
-  { category_id: id_cat[1], nutrient_id: id_nutr[1], min_score: 1, max_score: 3 }
+  { category_id: id_cat[1], nutrient_id: id_nutr[1], min_score: 1, max_score: 3 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[2], min_score: 1, max_score: 3 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[3], min_score: 1, max_score: 3 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[4], min_score: 0, max_score: 3 }
 ]
 
 category_nutrients.each do |category_nutrient|
