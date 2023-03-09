@@ -1,0 +1,89 @@
+
+
+
+/* Style for the black banner */
+.black-banner > img {
+  position: absolute;
+  object-fit: cover;
+  margin-top: 55px;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: calc(100vh - 55px);
+}
+
+/* Style for the container */
+.container-questions {
+  height: calc(100vh - 55px);
+  display: flex;
+  flex-direction: column;
+  margin-left: 30%;
+  margin-top: 55px;
+  padding-top: 4rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #ECF2FF;
+}
+
+.category-name > h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.questions-show {
+  display: inline;
+  width: 100vh;
+  height: auto;
+}
+
+
+/* Style for the h1 tag */
+.container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* Style for the p tag inside the form */
+form p {
+  margin-bottom: 1rem;
+}
+
+
+/* Style for the submit button */
+input[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-left: 30%;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+@media only screen and (max-width: 800px) {
+  .black-banner {
+    display: none;
+  }
+
+  .container-questions {
+    margin-left: 0;
+
+    .category-name {
+      align-self: center;
+    }
+  }
+}

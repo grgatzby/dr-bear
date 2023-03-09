@@ -114,3 +114,64 @@ h5 {
 .main-category-container {
   background-color: #D9EFFF;
 }
+
+.category-btn {
+  width: 185px;
+  border: 2px solid black;
+  border-radius: 40px;
+  text-align: center;
+  background-color: white;
+  padding-top: 3px;
+  width: 370px;
+  margin-bottom: 35px;
+}
+
+.category-btn:hover {
+  border: solid 1px lightgrey;
+  box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+}
+
+a {
+  color: black;
+  text-decoration: none;
+
+  :hover{
+    color: black;
+  }
+}
+
+.categories-container {
+  padding-top: 20px;
+  margin: 0 auto;
+  width: 375px;
+  // display: flex;
+  // justify-content: space-between;
+}
+
+.btn-primary {
+  margin-top: 4px;
+  padding: 5px 24px;
+  border-radius: 30px;
+  position: absolute;
+  left: 17%;
+  transform: translateX(-50%);
+
+  :hover {
+    box-shadow: 1px 1px 3px 3px black;
+    background-color: aqua;
+  }
+}
+
+.btn-success {
+  padding: 8px 160px;
+  border-radius: 30px;
+}
+
+.text-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 60px;
+  text-align: center;
+  padding-bottom: 20px;
+  margin-top: 20px;
+}

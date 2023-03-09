@@ -25,13 +25,14 @@ class CategoriesController < ApplicationController
     end
     dummy_user = User.find_by(first_name: "Crash", last_name: "Dummy")
 
-    category_result = Result.create!(
+    @category_result = Result.create!(
       total_score: @category_score,
       max_score: @max_category_score,
       user_id: dummy_user.id,
       category_id: @category.id
     )
 
+    redirect_to result_path(@category_result.id)
     #check @max_category_score against nutrients [min_score , max_score]
     # in private method?
     # redirect_to next category

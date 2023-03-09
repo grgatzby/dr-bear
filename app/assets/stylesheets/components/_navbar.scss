@@ -6,6 +6,17 @@
   border-bottom: 1px solid grey;
 }
 
+.navbar-2 {
+  justify-content: space-between;
+  height: 55px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  border-bottom: 1px solid grey;
+  color: white;
+  background-color: #24141F;
+  border-bottom: 1px solid black;
+}
+
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
@@ -34,7 +45,6 @@
 
 .fa-bars {
   font-size: 27px;
-  color: black;
   padding-right: 20px;
 }
 
