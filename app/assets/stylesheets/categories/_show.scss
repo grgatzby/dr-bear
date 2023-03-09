@@ -1,60 +1,89 @@
-.category-btn {
-  width: 185px;
-  border: 2px solid black;
-  border-radius: 40px;
-  text-align: center;
-  background-color: white;
-  padding-top: 3px;
-  width: 370px;
-  margin-bottom: 35px;
-}
 
-.category-btn:hover {
-  border: solid 1px lightgrey;
-  box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
-}
 
-a {
-  color: black;
-  text-decoration: none;
 
-  :hover{
-    color: black;
-  }
-}
-
-.categories-container {
-  padding-top: 20px;
-  margin: 0 auto;
-  width: 375px;
-  // display: flex;
-  // justify-content: space-between;
-}
-
-.btn-primary {
-  margin-top: 4px;
-  padding: 5px 24px;
-  border-radius: 30px;
+/* Style for the black banner */
+.black-banner > img {
   position: absolute;
-  left: 17%;
-  transform: translateX(-50%);
-
-  :hover {
-    box-shadow: 1px 1px 3px 3px black;
-    background-color: aqua;
-  }
+  object-fit: cover;
+  margin-top: 55px;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: calc(100vh - 55px);
 }
 
-.btn-success {
-  padding: 8px 160px;
-  border-radius: 30px;
-}
-
-.text-container {
+/* Style for the container */
+.container-questions {
+  height: calc(100vh - 55px);
   display: flex;
-  justify-content: center;
-  padding-top: 60px;
+  flex-direction: column;
+  margin-left: 30%;
+  margin-top: 55px;
+  padding-top: 4rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #ECF2FF;
+}
+
+.category-name > h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;
+}
+
+.questions-show {
+  display: inline;
+  width: 100vh;
+  height: auto;
+}
+
+
+/* Style for the h1 tag */
+.container h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+/* Style for the p tag inside the form */
+form p {
+  margin-bottom: 1rem;
+}
+
+
+/* Style for the submit button */
+input[type="submit"] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
   text-align: center;
-  padding-bottom: 20px;
-  margin-top: 20px;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+  margin-left: 30%;
+  cursor: pointer;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+input[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+@media only screen and (max-width: 800px) {
+  .black-banner {
+    display: none;
+  }
+
+  .container-questions {
+    margin-left: 0;
+
+    .category-name {
+      align-self: center;
+    }
+  }
 }
