@@ -1,0 +1,72 @@
+
+
+.devise-container {
+  padding: 20px;
+  width: 400px;
+
+  border: solid 2px;
+  border-color: grey;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
+}
+
+.center-box{
+  display: flex;
+}
+
+.sign-in {
+  margin: 100px auto;
+}
+
+.pw-forgot {
+  margin: 200px auto;
+}
+
+.sign-up {
+  margin: 100px auto;
+}
+
+.pw-edit {
+  margin: 10px 100px;
+}
+
+.conf-new {
+  margin: 100px auto;
+}
+.sign-in-shared {
+  margin: 0 auto;
+  padding: 10px;
+  width: 350px;
+  border: solid 2px;
+  border-color: gray;
+  border-radius: $card-border-radius;
+}
+
+.btn-flat {
+  margin: 0 auto;
+  color: white;
+  padding: 8px 24px;
+  border-radius: 4px;
+  background: #670BFF;
+  transition: background 0.3s ease;
+}
+
+.btn-flat:hover {
+  background: #4D04C4;
+  color: white;
+}
+
+.btn-ghost {
+  margin: 0 auto;
+  color: #4A4A4A;
+  // border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  // border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
+}
