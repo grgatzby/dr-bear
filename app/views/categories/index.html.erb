@@ -1,9 +1,10 @@
-  <div class="container">
+  <div class="main-category-container">
     <div class="centered-container">
-      <div class="text-container">
-        <%= link_to "Back", root_path, class: "btn btn-primary"%>
-        <h1>Choose one or more categories for your Quiz.</h1>
+        <%= link_to "Back", root_path, class: "btn btn-ghost"%>
+      <div class="category-text-container">
+        <h2>Take our quiz for personalized supplement recommendations.</h2>
       </div>
+        <h5>Choose a category, answer a few questions, and get tailored suggestions to support your health.</h5>
       <div class="categories-container">
         <% @categories.each do |category|  %>
           <%= render "category", category: category %>
