@@ -27,7 +27,7 @@
         <%# Get a random image based on the nutrient name using the Unsplash API %>
         <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
 
-        <div class="nutrients-content-container" onclick="window.location='https://en.wikipedia.org/wiki/<%= nutri.name %>';">
+        <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
           <div class="img-nutrient-container"><img src="<%= unsplash_url %>" alt=""></div>
           <div class="nutrient-content-text">
             <div class="nutrient-name-container">
