@@ -3,7 +3,9 @@
 
   <div class="results-content-container">
     <div class="category-container">
-      <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?sleeping" alt=""></div>
+      <!-- Code below to generate images based on category name, currently disabled because it is not needed %> -->
+      <!-- <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?<%=@category.name%>" alt=""></div> -->
+      <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?sleeping" alt="Category-img"></div>
       <div class="category-content-text">
         <div class="category-name-container">
           <p><%= @category.name %></p>
@@ -20,11 +22,9 @@
         <h3 id="title-nutrient-results">Based on your results, we recommend the following nutrients</h3>
       </div>
 
-      <%# Loop through each nutrient and create a container for it %>
       <% @nutrient.each do |nutrient| %>
         <% nutri = Nutrient.find(nutrient) %>
 
-        <%# Get a random image based on the nutrient name using the Unsplash API %>
         <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
 
         <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
