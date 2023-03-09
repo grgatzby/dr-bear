@@ -7,5 +7,5 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :categories, only: [:index, :show, :create]
 
-  resources :results, only: [:index]
+  resources :results, only: [:show]
 end
