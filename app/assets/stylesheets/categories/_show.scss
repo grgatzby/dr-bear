@@ -53,6 +53,13 @@ form p {
   margin-bottom: 1rem;
 }
 
+.btn-group{
+  .btn.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+}
+
 
 /* Style for the submit button */
 input[type="submit"] {

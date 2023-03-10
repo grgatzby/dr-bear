@@ -13,17 +13,17 @@
         <% @category.questions.each do |question| %>
             <p><%= question.content %></p>
             <% question.answers.each_with_index do |answer, index| %>
-              <div class="form-check">
-                <%= radio_button_tag("cat#{@category.id}q#{question.id}",
-                                     answer.score,
-                                     index == 0,
-                                     class: "form-check-input") %>
-                <%= label_tag("cat#{@category.id}q#{question.id}a#{answer.id}",
-                               answer.content,
-                               class: "form-check-label") %>
-              </div>
-              <%= hidden_field_tag(:category, @category.id) %>
-            <% end %>
+              <div class="btn-group">
+                  <label class="btn btn-outline-secondary">
+                    <%= radio_button_tag("cat#{@category.id}q#{question.id}",
+                                        answer.score,
+                                        index == 0,
+                                        class: "form-check-input visually-hidden") %>
+                    <%= answer.content %>
+                  </label>
+                </div>
+                <%= hidden_field_tag(:category, @category.id) %>
+              <% end %>
               <hr>
           <% end %>
           <div>
@@ -33,3 +33,23 @@
     </div>
   </div>
 </div>
+
+
+<script>
+  // add click event listeners to all the label tags inside the button group
+  const buttonGroup = document.querySelectorAll('.btn-group');
+  buttonGroup.forEach(group => {
+    const labels = group.querySelectorAll('label');
+    labels.forEach(label => {
+      label.addEventListener('click', () => {
+        // toggle the active class of the clicked label
+        label.classList.toggle('active');
+        // uncheck the radio button if the label is not active
+        if (!label.classList.contains('active')) {
+          const radioButton = label.querySelector('input[type="radio"]');
+          radioButton.checked = false;
+        }
+      });
+    });
+  });
+</script>
