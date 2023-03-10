@@ -24,9 +24,10 @@ class ResultsController < ApplicationController
     @result = Result.find(params[:id])
     if current_user
       # user will have to login (or sign up) if not already logged in (to display pills bundles to buy)
-      @result.user = current_user
-      @result.update(user_params)
-      redirect_to result_path(@result.id)
+      @user = current_user
+      @result.update(user_id: @user.id)
+      # @result.update(user_params)
+      redirect_to basket_path(@result.id)
     else
       # user has not logged in
       redirect_back(fallback_location: categories_path)

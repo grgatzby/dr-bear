@@ -14,7 +14,7 @@
 
 
 </div>
-<div class= "fa-solid fa-bars"></div>
-<%= image_tag "", class: "fa-solid fa-bars", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
 
-<%= link_to 'See our recommended options', basket_path(@result.id), data: {"turbo_method": :patch} %>
+<div class="btn btn-primary center-box">
+  <%= link_to 'See our recommended options', result_path(@result.id), data: {"turbo_method": :patch} %>
+</div>
