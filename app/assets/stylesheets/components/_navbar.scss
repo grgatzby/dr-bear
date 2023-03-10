@@ -54,7 +54,7 @@
 }
 
 .navbar {
-  position: absolute;
+  // position: absolute;  /* commented out by Guillaume */
   top: 0;
   width: 100%;
   z-index: 2; /* set a higher z-index value for the navbar */
