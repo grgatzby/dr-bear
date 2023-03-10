@@ -2,11 +2,15 @@
   <div class="container-fluid">
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+      <span class="toggler-navbar1">
+        <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" width="25" height="25">
+          <path stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M1 1h14M1 8h14M1 15h14"/>
+        </svg>
+      </span>
     </button>
 
     <div class="navbar-row">
-      <%= link_to "SHOP", "#", class: "nav-link" %>
+      <%= link_to "SHOP", "https://www.bol.com/nl/nl/s/?page=1&searchtext=bional&view=tile", class: "nav-link" %>
       <%= link_to "ABOUT", "#", class: "nav-link" %>
       <%= link_to "LEARN", "#", class: "nav-link" %>
     </div>
@@ -20,10 +24,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <%= image_tag "", class: "fa-solid fa-bars d-none d-md-inline", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <button class="fa-solid fa-bars d-none d-md-inline" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
           <li class="nav-item dropdown">
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Shop", "#", class: "dropdown-item" %>
+              <%= link_to "Shop", "https://www.bol.com/nl/nl/s/?page=1&searchtext=bional&view=tile", class: "dropdown-item" %>
               <%= link_to "About", "#", class: "dropdown-item" %>
               <%= link_to "Learn", "#", class: "dropdown-item" %>
               <hr>
@@ -31,7 +35,7 @@
             </div>
           </li>
           <li class="nav-item d-inline d-sm-none">
-            <%= link_to "Shop", "#", class: "nav-link" %>
+            <%= link_to "Shop", "https://www.bol.com/nl/nl/s/?page=1&searchtext=bional&view=tile", class: "nav-link" %>
           </li>
           <li class="nav-item d-inline d-sm-none">
             <%= link_to "About", "#", class: "nav-link" %>

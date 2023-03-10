@@ -72,8 +72,8 @@ questions = [
   { category_id: id_cat[1], content: "Do you feel stressed on a daily basis?" },
   { category_id: id_cat[1], content: "Do you get agitated easily over things outside your control?" },
   { category_id: id_cat[1], content: "Do you find it difficult to relax?" },
-  { category_id: id_cat[1], content: "Do you get angry over small things?" }
 ]
+# { category_id: id_cat[1], content: "Do you get angry over small things?" }
 
 id_q = []
 questions.each do |question|
@@ -82,6 +82,7 @@ questions.each do |question|
     category_id: question[:category_id]
   )
   id_q.push(seeded_question.id)
+  puts "seeded #{seeded_question.content}"
 end
 
 puts "-------------------"
@@ -103,17 +104,18 @@ answers = [
   { category_id: id_cat[1], question_id: id_q[4], content: "Yes", score: 1 },
   { category_id: id_cat[1], question_id: id_q[4], content: "No", score: 0 },
   { category_id: id_cat[1], question_id: id_q[5], content: "Yes", score: 1 },
-  { category_id: id_cat[1], question_id: id_q[5], content: "No", score: 0 },
-  { category_id: id_cat[1], question_id: id_q[6], content: "Yes", score: 1 },
-  { category_id: id_cat[1], question_id: id_q[6], content: "No", score: 0 }
+  { category_id: id_cat[1], question_id: id_q[5], content: "No", score: 0 }
+  # { category_id: id_cat[1], question_id: id_q[6], content: "Yes", score: 1 },
+  # { category_id: id_cat[1], question_id: id_q[6], content: "No", score: 0 }
 ]
 
 answers.each do |answer|
-  Answer.create!(
+  answer = Answer.create!(
     content: answer[:content],
     score: answer[:score],
     question_id: answer[:question_id]
   )
+  puts "anser #{answer.id}"
 end
 
 puts "-------------------"
@@ -154,9 +156,9 @@ category_nutrients = [
   { category_id: id_cat[0], nutrient_id: id_nutr[2], min_score: 1, max_score: 3 },
   { category_id: id_cat[0], nutrient_id: id_nutr[3], min_score: 2, max_score: 3 },
 
-  { category_id: id_cat[1], nutrient_id: id_nutr[4], min_score: 1, max_score: 5 },
-  { category_id: id_cat[1], nutrient_id: id_nutr[5], min_score: 2, max_score: 5 },
-  { category_id: id_cat[1], nutrient_id: id_nutr[6], min_score: 1, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[4], min_score: 1, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[5], min_score: 2, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[6], min_score: 1, max_score: 3 },
   { category_id: id_cat[1], nutrient_id: id_nutr[7], min_score: 1, max_score: 2 }
 ]
 
