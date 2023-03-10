@@ -15,6 +15,7 @@
   padding: 3% 6% 5% 6%;
   background-color: rgba(217, 239, 255, 1);
   font-family: 'Montserrat', sans-serif;
+  min-height: calc(100vh - 55px); /* Set a minimum height for the container */
 
   h1 {
     font-size: 1.7rem;
