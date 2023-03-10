@@ -27,7 +27,7 @@ class ResultsController < ApplicationController
       @user = current_user
       @result.update(user_id: @user.id)
       # @result.update(user_params)
-      redirect_to basket_path(@result.id)
+      # redirect_to basket_path(@result.id)
     else
       # user has not logged in
       redirect_back(fallback_location: categories_path)
