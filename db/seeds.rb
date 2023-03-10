@@ -82,6 +82,7 @@ questions.each do |question|
     category_id: question[:category_id]
   )
   id_q.push(seeded_question.id)
+  puts "seeded #{seeded_question.content}"
 end
 
 puts "-------------------"
@@ -103,17 +104,18 @@ answers = [
   { category_id: id_cat[1], question_id: id_q[4], content: "Yes", score: 1 },
   { category_id: id_cat[1], question_id: id_q[4], content: "No", score: 0 },
   { category_id: id_cat[1], question_id: id_q[5], content: "Yes", score: 1 },
-  { category_id: id_cat[1], question_id: id_q[5], content: "No", score: 0 },
-  { category_id: id_cat[1], question_id: id_q[6], content: "Yes", score: 1 },
-  { category_id: id_cat[1], question_id: id_q[6], content: "No", score: 0 }
+  { category_id: id_cat[1], question_id: id_q[5], content: "No", score: 0 }
+  # { category_id: id_cat[1], question_id: id_q[6], content: "Yes", score: 1 },
+  # { category_id: id_cat[1], question_id: id_q[6], content: "No", score: 0 }
 ]
 
 answers.each do |answer|
-  Answer.create!(
+  answer = Answer.create!(
     content: answer[:content],
     score: answer[:score],
     question_id: answer[:question_id]
   )
+  puts "anser #{answer.id}"
 end
 
 puts "-------------------"
