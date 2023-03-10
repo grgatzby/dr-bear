@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :categories, only: [:index, :show, :create]
 
   resources :results, only: [:show]
-
+  root to: "pages#home"
   get "results", to: "pages#home"
 
   get "about", to: "pages#about"
