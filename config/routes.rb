@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   resources :results, only: [:show]
   get "results", to: "pages#home"
+  get "results/:id/basket", to: "results#basket", as: "basket"
+  patch "results/:id", to: "results#update"
 end

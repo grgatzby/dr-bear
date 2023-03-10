@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>Welcome <%= @user.first_name %><!/h1>
+  <h2>Check your personnalised basket based on your Quiz results</h2>
+  <%= link_to "Back to Home page", categories_path %>
+  <%= link_to "Back", results_path(@result.id) %>
+</div>
