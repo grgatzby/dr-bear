@@ -53,33 +53,30 @@ form p {
   margin-bottom: 1rem;
 }
 
-.btn-group{
-  .btn.active {
-    background-color: #007bff;
-    color: #fff;
+
+.button-green{
+  /* Style for the submit button */
+  input[type="submit"] {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    margin-left: 30%;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+
+
+  input[type="submit"]:hover {
+    background-color: #3e8e41;
   }
 }
 
-
-/* Style for the submit button */
-input[type="submit"] {
-  background-color: #4CAF50;
-  border: none;
-  color: white;
-  padding: 1rem 2rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.2rem;
-  margin-top: 2rem;
-  margin-left: 30%;
-  cursor: pointer;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-}
-
-input[type="submit"]:hover {
-  background-color: #3e8e41;
-}
 
 @media only screen and (max-width: 800px) {
   .black-banner {
