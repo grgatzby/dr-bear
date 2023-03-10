@@ -1,22 +1,5 @@
 <%= link_to category_path(category.id) do %>
-  <div class="category-btn">
-    <div class="category-name-flex">
-
-      <div class="bed-image-for-sleep-category">
-        <% if category.name == "Sleep" %>
-          <%= image_tag "icons8-sleeping-in-bed-96.png", width: 50, height: 50 %>
-        <% end %>
-      </div>
-
-      <div class="stress-image-category">
-        <% if category.name == "Stress" %>
-          <%= image_tag "stress-tired-icon.png", width: 45, height: 45 %>
-        <% end %>
-      </div>
-
-      <div class="h3-text-div">
-        <h3><%= category.name %></h3>
-      </div>
-    </div>
+  <div class="categorycard-title-text">
+    <h3><%= category.name %></h3>
   </div>
 <% end %>
