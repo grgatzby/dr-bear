@@ -1,3 +1,4 @@
+
   <div class="main-category-container">
     <div class="centered-container">
         <%= link_to "Back", root_path, class: "btn btn-ghost"%>
@@ -9,6 +10,6 @@
         <% @categories.each do |category|  %>
           <%= render "category", category: category %>
         <% end %>
+        <div class="flexify-box"><%= link_to "Back", root_path, class: "btn btn-primary"%></div>
       </div>
-    </div>
   </div>

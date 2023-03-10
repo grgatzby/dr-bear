@@ -11,9 +11,11 @@
                 input_html: { autocomplete: "email" } %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Resend unlock instructions" %>
+  <div class="form-actions flexify-box">
+    <%= f.button :submit, "Resend unlock instructions", class: "btn button-flat" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+  <div class="flexify-box">
+    <%= render "devise/shared/links" %>
+  </div>

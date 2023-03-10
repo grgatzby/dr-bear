@@ -57,6 +57,7 @@ categories.each do |category|
     description: category[:description]
   )
   id_cat.push(seeded_category.id)
+  puts "seeded #{seeded_category.name}"
 end
 
 puts "-------------------"
@@ -115,7 +116,7 @@ answers.each do |answer|
     score: answer[:score],
     question_id: answer[:question_id]
   )
-  puts "anser #{answer.id}"
+  puts "answer #{answer.id}, #{answer.content}"
 end
 
 puts "-------------------"

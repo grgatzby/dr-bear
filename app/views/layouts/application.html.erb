@@ -31,13 +31,12 @@
   </head>
 
   <body>
-  <% if params[:controller] == "pages"  %>
+    <% if params[:controller] == "pages"  %>
       <%= render "shared/navbar" %>
     <% else %>
       <%= render "shared/navbar2" %>
     <% end %>
-<%= render "shared/flashes" %>
-
+    <%= render "shared/flashes" %>
     <%= yield %>
   </body>
 </html>
