@@ -51,12 +51,43 @@
     color: #666;
     box-shadow: 0 3px 8px rgba(50, 50, 50, 0.17);
   }
+  .hit-the-floor {
+    color: #fff;
+    font-size: 12em;
+    font-weight: bold;
+    font-family: Helvetica;
+    text-shadow:
+      0 1px 0 #ccc,
+      0 2px 0 #c9c9c9,
+      0 3px 0 #bbb,
+      0 4px 0 #b9b9b9,
+      0 5px 0 #aaa,
+      0 6px 1px rgba(0,0,0,.1),
+      0 0 5px rgba(0,0,0,.1),
+      0 1px 3px rgba(0,0,0,.3),
+      0 3px 5px rgba(0,0,0,.2),
+      0 5px 10px rgba(0,0,0,.25),
+      0 10px 10px rgba(0,0,0,.2),
+      0 20px 20px rgba(0,0,0,.15);
+  }
+
+  .hit-the-floor {
+    text-align: center;
+  }
+
+  body {
+    background-color: #f1f1f1;
+  }
+
+
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/422.html -->
+  <div class="hit-the-floor">422</div>
   <div class="dialog">
+    <iframe src="https://giphy.com/embed/13en47d8J9l6pi" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/chris-farley-surprise-shock-13en47d8J9l6pi"></a></p>
     <div>
       <h1>The change you wanted was rejected.</h1>
       <p>Maybe you tried to change something you didn't have access to.</p>

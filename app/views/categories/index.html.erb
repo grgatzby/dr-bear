@@ -1,24 +1,9 @@
-<!--- <div class="main-category-container">
-  <div class="centered-container">
-    <div class="category-text-container">
-      <h2>Take our quiz for personalized supplement recommendations.</h2>
-    </div>
-      <h5>Choose a category, answer a few questions, and get tailored suggestions to support your health.</h5>
-    <div class="categories-container">
-      <% @categories.each do |category|  %>
-        <%= render "category", category: category %>
-      <% end %>
-    </div>
-  </div>
-</div> -->
-
-
-
 <div class="main-category-container">
   <div>
     <div class="category-titles-container">
       <div class="category-main-title">
         <h1>Take Our Quiz</h1>
+
       </div>
       <div class="category-second-title">
         <h2>Choose a quiz category and get personalized suggestions to improve your nutrient intake</h2>
@@ -38,7 +23,7 @@
               </div>
           </div>
         <% end %>
+        <div class="flexify-box"><%= link_to "Back", root_path, class: "btn btn-primary"%></div>
       </div>
-    </div>
   </div>
 </div>

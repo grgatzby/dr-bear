@@ -1,0 +1,6 @@
+<div class="container">
+  <h1>Welcome <%= @user.first_name %> <%= @user.last_name %></h1>
+  <h2>Check your personnalised basket based on your Quiz results</h2>
+  <div class="flexify-box"><%= link_to "Back", result_path(@result.id), class: "btn btn-ghost"%></div>
+  <div class="flexify-box"><%= link_to "Select another quiz", categories_path, class: "btn btn-ghost"%></div>
+</div>
