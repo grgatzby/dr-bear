@@ -15,6 +15,7 @@ class ApplicationController < ActionController::Base
     { host: ENV["DOMAIN"] || "localhost:3000" }
   end
 
-
-
+  def after_sign_in_redirect_to_previous
+    redirect_back(fallback_location: categories_path)
+  end
 end
