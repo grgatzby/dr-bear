@@ -1,5 +1,5 @@
 <div class="about-page-container">
-  <div class="about-us-container">
+  <div class="about-us-container" style="background-image: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0)), url('<%= image_path 'about-banner.jpg' %>')" >
     <h1>About us</h1>
   </div>
   <div class="after-about-us-container">
@@ -9,9 +9,16 @@
   </div>
 
   <div class="imagess-container">
-    <%= image_tag "user-friendly.png", width: 200, height: 200 %>
-    <%= image_tag "map.png", width: 200, height: 200 %>
+    <div class="user-firendly-container">
+      <%= image_tag "user-friendly.png", width: 200, height: 200 %>
+      <%# <h6>User friendly</h6> %>
+    </div>
+    <div class="map-png-container">
+      <%= image_tag "map.png", width: 190, height: 160 %>
+      <%# <h6>Easy to navigate</h6> %>
+    </div>
   </div>
+
   <div class="after-about-us-container">
   <p>Our quiz is designed to be user-friendly and easy to navigate. Simply answer a few questions about your health and lifestyle, and we'll provide you with personalized supplement recommendations tailored to your specific needs.</p>
 
