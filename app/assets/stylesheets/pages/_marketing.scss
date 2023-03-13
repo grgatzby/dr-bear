@@ -1,0 +1,69 @@
+.marketing-container {
+  height: 680px;
+  width: 100vw;
+  background-color: #FFF5E4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .marketing-title {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    top: 0;
+    color: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    h2 {
+      font-size: 30px;
+      font-weight: 200;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+
+  .marketing-images-content {
+    width: 75vw;
+    height: 65vh;
+    background-color: FFF5E4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .marketing-img3 {
+      img {
+        object-position: 0 -20px;
+      }
+    }
+
+    img {
+      width: 350px;
+      height: 350px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: 0px;
+    }
+
+    .marketing-description {
+      padding-top: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 350px;
+      text-align: center;
+      color: #92770e;
+      justify-content: center;
+      h3 {
+        font-size: 22px;
+      }
+
+
+      .marketing-description-body {
+        p {
+          padding-left: 7%;
+          padding-right: 7%;
+          font-size: 14px;
+          //opacity: 0.8;
+        }
+
+      }
+
+    }
+  }
+}

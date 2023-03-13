@@ -1,0 +1,114 @@
+.background-info-container {
+  height: 650px;
+  width: 100vw;
+  background-color: #FFF5E4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.background-container1 {
+  position: relative; /* Add position relative to container */
+  width: 75vw;
+  padding-top: 55px;
+}
+
+.background-image1 img {
+  position: relative;
+  width: 700px;
+  height: 550px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+.background-content1 {
+  position: absolute;
+  top: 87px;
+  right: 0px;
+  background-color: white;
+  width: 570px;
+  height: 485px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
+
+.background-content-title {
+  padding-top: 10%;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-bottom: 5%;
+  text-align: start;
+
+  h4 {
+    font-size: 30px;
+    font-weight: 400;
+    opacity: 0.8;
+  }
+}
+
+.background-content-description {
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: start;
+  font-size: 15px;
+
+  p {
+    opacity: 0.8;
+  }
+}
+
+.background-content-link {
+  border: 1px solid rgba(128, 128, 128, 0.3);
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.background-content-link:hover {
+  background-color: rgba(128, 128, 128, 0.2);
+}
+
+
+//////////////////////////////////////////////////////////
+
+
+.background-info-container2 {
+  height: 700px;
+  width: 100vw;
+  background-color: #FFF5E4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.background-container2 {
+  position: relative; /* Add position relative to container */
+  width: 75vw;
+  padding-top: 50px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.background-image2 img {
+  position: relative;
+  width: 700px;
+  height: 550px;
+  object-fit: cover;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+  right: 0;
+}
+
+.background-content2 {
+  position: absolute;
+  top: 83px;
+  left: 0px;
+  background-color: white;
+  width: 570px;
+  height: 485px;
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+}
