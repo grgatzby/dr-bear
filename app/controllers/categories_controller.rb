@@ -40,28 +40,30 @@ class CategoriesController < ApplicationController
   def create
     #gets the results from the questions form
     # params["cat[:id]q[:id]"] => score for this category_id/question_id, in string format
-    # raise
-    @categories = Category.all
-    @categories.each do |cat|
-      @cat_id = cat.id
-      if params[@cat_id.to_s]
-        @category = cat
-        @questions = @category.questions
-        @max_category_score = 0
-        @category_score = 0
-        @questions.each do |question|
-          @category_score += params["cat#{params[:category]}q#{question.id}"].to_i
-          max_question_score = question.answers.map{ |answer| answer.score }.max
-          @max_category_score += max_question_score
+    raise
+    if params[:category]
+      @categories = Category.find(params[:category].to_i)
+      @categories.each do |cat|
+        @cat_id = cat.id
+        if params[@cat_id.to_s]
+          @category = cat
+          @questions = @category.questions
+          @max_category_score = 0
+          @category_score = 0
+          @questions.each do |question|
+            @category_score += params["cat#{params[:category]}q#{question.id}"].to_i
+            max_question_score = question.answers.map{ |answer| answer.score }.max
+            @max_category_score += max_question_score
+          end
+          # current user if logged in, dummy user if not
+          user_to_attach = current_user || User.find_by(first_name: "Crash", last_name: "Dummy")
+          @category_result = Result.create!(
+            total_score: @category_score,
+            max_score: @max_category_score,
+            user_id: user_to_attach.id,
+            category_id: @category.id
+          )
         end
-        # current user if logged in, dummy user if not
-        user_to_attach = current_user || User.find_by(first_name: "Crash", last_name: "Dummy")
-        @category_result = Result.create!(
-          total_score: @category_score,
-          max_score: @max_category_score,
-          user_id: user_to_attach.id,
-          category_id: @category.id
-        )
       end
     end
     # show results
