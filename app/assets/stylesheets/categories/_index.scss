@@ -103,8 +103,188 @@
       }
     }
   }
+
+  .card-quiz-category:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  }
+
 }
 
-.card-quiz-category:hover {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+// GC: This CSS applies to the multi select of categories before the quiz (app/views/categories/index.html.erb)
+//               CSS for SMALL BUTTONS
+
+.small-buttons {
+  background-color: rgba(255, 255, 255, 0);
+  height: fit-content;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  gap: 5%;
+
+  .cat2 {
+  margin: 4px auto;
+  background-color: white;
+  border-radius: 20px;
+  border: 1px solid black;
+  overflow: hidden;
+  float:left;
+  }
+
+  .cat2 label {
+    margin: 0 auto;
+    line-height: 3.0em;
+    width: 8.0em;
+    height: 3.0em;
+    float:left;
+    }
+
+  .cat2 label span {
+    text-align: center;
+    padding: 3px 0;
+    display: block;
+    }
+
+  .cat2 label input {
+    display: none;
+    color: #fff !important;
+    }
+  /* selects all of the text within the input element and changes the color of the text */
+  .cat2 label input + span{
+    color: rgb(41, 2, 51);
+    }
+
+  /* This will declare how a selected input will look giving generic properties */
+  .cat2 input:checked + span {
+    color: #ffffff;
+    text-shadow: 0 0  6px rgba(0, 0, 0, 0.8);
+    }
+
+
+  /*
+  selects each category that contains an input element that is a checkbox and is checked
+  changes the background color of the span element.
+  */
+
+  .cat2-checked input:checked + span{
+    background-color:  rgb(41, 2, 51);
+    color:#fff
+    }
+}
+
+
+  // GC: This CSS applies to the multi select of categories before the quiz (app/views/categories/index.html.erb)
+  //                      CSS for PHOTO CARDS
+
+  .photo-cards {
+    background-color: rgba(255, 255, 255, 0);
+    height: fit-content;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+
+    .cat {
+    // margin: 4px auto;
+    // background-color: white;
+    // border-radius: 20px;
+    // border: 1px solid black;
+    // float:left;
+    overflow: hidden;
+
+
+    display: flex;
+    // flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.7);
+    //cursor: pointer;
+    width: 350px;
+    height: 450px;
+    position: relative;
+
+
+    .cat-card-quiz-img {
+      img {
+        width: 350px;
+        height: 450px;
+        object-fit: cover;
+        border-radius: 20px;
+        filter: brightness(50%);
+        }
+      }
+
+    .cat-card-title-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+      h3 {
+        margin-top: 50%;
+        font-size: 55px;
+        text-decoration: none;
+        color: white;
+        }
+      }
+    }
+
+    //.cat label,
+    .cat .cat-card-title-text {
+      // line-height: 3.0em;
+      width: 350px;
+      height: 450px;
+      // float:left;
+      // margin: 0 auto;
+      // width: 8.0em;
+      // height: 3.0em;
+    }
+
+    //.cat label span,
+    .cat .cat-card-title-text {
+      text-align: center;
+      padding: 3px 0;
+      display: block;
+    }
+
+    //.cat label input,
+    //.cat input
+    .cat-card-title-text {
+      display: none;
+      color: #fff !important;
+    }
+    /* selects all of the text within the input element and changes the color of the text */
+    //.cat label input + span,
+    .cat input + .cat-card-title-text{
+      color: rgb(41, 2, 51);
+
+    }
+
+
+    /* This will declare how a selected input will look giving generic properties */
+    //.cat input:checked + span,
+    .cat input:checked + .cat-card-title-text {
+      //color: #ffffff;
+      opacity: 20%;
+      text-shadow: 0 0  6px rgba(0, 0, 0, 0.8);
+    }
+
+
+    /*
+    selects each category that contains an input element that is a checkbox and is checked
+    changes the background color of the span element.
+    */
+
+    //.cat-checked input:checked + span,
+    .cat-checked input:checked + .cat-card-title-text{
+      background-color:  rgb(41, 2, 51);
+      color:#fff
+    }
+
+  .cat:hover {
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 5px 5px 3px -1px;
+    /*
+    end of GC addition
+    */
+  }
 }

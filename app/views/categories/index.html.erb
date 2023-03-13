@@ -3,26 +3,77 @@
     <div class="category-titles-container">
       <div class="category-main-title">
         <h1>Take Our Quiz</h1>
-
       </div>
       <div class="category-second-title">
         <h2>Choose a quiz category and get personalized suggestions to improve your nutrient intake</h2>
       </div>
     </div>
     <div class="centered-category-content-container">
+
+      <!-- IO select one card and goes to Categories show view-->
       <div class="all-cards-container">
         <% @categories.each do |category|  %>
           <div class="card-quiz-category">
-              <div class="card-quiz-img">
-                <%= link_to category_path(category.id) do %>
+            <div class="card-quiz-img">
+              <%= link_to category_path(category.id) do %>
                 <%= render "img", category: category %>
-                <% end %>
-              </div>
-              <div class="card-quiz-content">
-                <%= render "category", category: category %>
-              </div>
+              <% end %>
+            </div>
+            <div class="card-quiz-content">
+              <%= render "category", category: category %>
+            </div>
           </div>
         <% end %>
       </div>
+    </div>
+
+
+    <!-- We'll keep one of the two codes below (for small buttons or photo cards) -->
+    <div class="centered-category-content-container">
+      <!-- GC multi-select with small buttons-->
+      <div class="small-buttons">
+        <%= form_tag(action: "multishow", method: "get") do %>
+          <% @categories.each do |category| %>
+            <div class="cat2 cat2-checked">
+              <%= label_tag() do%>
+                <%= check_box_tag(category.id) %>
+                <span><%= category.name %></span>
+              <% end %>
+            </div>
+          <% end %>
+          <%= hidden_field_tag(:category, "index") %>
+          <p><%= submit_tag("Go to questions", class: "btn btn-primary") %></p>
+        <% end %>
+      </div>
+      <!--  end of multi-select small buttons-->
+
+      <!-- GC multi-select with photo cards -->
+      <div class="photo-cards">
+        <div class="centered-category-content-container">
+          <div class="all-cards-container">
+            <%= form_tag(action: "multishow", method: "get") do %>
+              <% @categories.each do |category| %>
+                <div class="cat cat-checked">
+                  <%= label_tag() do%>
+                    <div class="cat-card-quiz-img">
+                      <%= render "img", category: category %>
+                    </div>
+                    <%= check_box_tag(category.id) %>
+                    <div class="cat-card-title-text">
+                      <h3><%= category.name %></h3>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+              <%= hidden_field_tag(:category, "index") %>
+              <div class = "button-green" >
+                <p><%= submit_tag("Go to questions", class: "btn btn-primary") %></p>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      <!-- end of multi-select large cards -->
+
+    </div>
   </div>
 </div>
