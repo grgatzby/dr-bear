@@ -39,7 +39,7 @@
             </div>
           <% end %>
           <%= hidden_field_tag(:category, "index") %>
-          <p><%= submit_tag("Go to questions") %></p>
+          <p><%= submit_tag("Go to questions", class: "btn btn-primary") %></p>
         <% end %>
       </div>
       <!--  end of multi-select small buttons-->
@@ -48,11 +48,13 @@
       <div class="large-cards">
         <div class="centered-category-content-container">
           <div class="all-cards-container">
-            <%= form_tag(action: "create", method: "get") do %>
+            <%= form_tag(action: "multishow", method: "get") do %>
               <% @categories.each do |category| %>
-                <div class="cat cat-checked cat-card-quiz-img">
+                <div class="cat cat-checked">
                   <%= label_tag() do%>
-                    <%= render "img", category: category %>
+                    <div class="cat-card-quiz-img">
+                      <%= render "img", category: category %>
+                    </div>
                     <%= check_box_tag(category.id) %>
                     <div class="cat-card-title-text">
                       <h3><%= category.name %></h3>
@@ -62,7 +64,7 @@
               <% end %>
               <%= hidden_field_tag(:category, "index") %>
               <div class = "button-green" >
-                <p><%= submit_tag("Go to questions") %></p>
+                <p><%= submit_tag("Go to questions", class: "btn btn-primary") %></p>
               </div>
             <% end %>
         </div>
