@@ -11,11 +11,10 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @questions = @category.questions
     @results = params[:result]
+    raise
     # render :show
     # redirect_to categories_path(params[:id])
     $show_params = params
-    # raise
-    # redirect_to category_path(@cat_id) unless params[:id]
   end
 
   def multishow
