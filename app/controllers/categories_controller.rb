@@ -11,7 +11,7 @@ class CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @questions = @category.questions
     @results = params[:result]
-    raise
+    # raise
     # render :show
     # redirect_to categories_path(params[:id])
     $show_params = params
@@ -40,7 +40,7 @@ class CategoriesController < ApplicationController
   def create
     #gets the results from the questions form
     # params["cat[:id]q[:id]"] => score for this category_id/question_id, in string format
-    raise
+    # raise
     @categories = Category.all
     @categories.each do |cat|
       @cat_id = cat.id
