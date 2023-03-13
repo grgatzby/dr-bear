@@ -9,6 +9,8 @@
       </div>
     </div>
     <div class="centered-category-content-container">
+
+      <!-- IO select one card and goes to Categories show view-->
       <div class="all-cards-container">
         <% @categories.each do |category|  %>
           <div class="card-quiz-category">
@@ -25,11 +27,12 @@
       </div>
     </div>
 
-    <div class="centered-category-content-container">
 
-      <!--  multi-select small buttons-->
+    <!-- We'll keep one of the two codes below (for small buttons or photo cards) -->
+    <div class="centered-category-content-container">
+      <!-- GC multi-select with small buttons-->
       <div class="small-buttons">
-        <%= form_tag(action: "create", method: "get") do %>
+        <%= form_tag(action: "multishow", method: "get") do %>
           <% @categories.each do |category| %>
             <div class="cat2 cat2-checked">
               <%= label_tag() do%>
@@ -44,8 +47,8 @@
       </div>
       <!--  end of multi-select small buttons-->
 
-      <!-- multi-select large cards -->
-      <div class="large-cards">
+      <!-- GC multi-select with photo cards -->
+      <div class="photo-cards">
         <div class="centered-category-content-container">
           <div class="all-cards-container">
             <%= form_tag(action: "multishow", method: "get") do %>
