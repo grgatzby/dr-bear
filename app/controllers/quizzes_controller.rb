@@ -15,9 +15,8 @@ class QuizzesController < ApplicationController
     @quiz = Quiz.new(quiz_params)
     # replaces @quiz.categories with an array of selected category names
     @quiz.categories = []
-    categories = Category.all
-    categories.each do |category|
-      @quiz.categories.push(category.name) if params["quiz"]["categories"].include?(category.id.to_s)
+    Category.all.each do |category|
+      @quiz.categories << category.name if params["quiz"]["categories"].include?(category.id.to_s)
     end
 
     @quiz.save
