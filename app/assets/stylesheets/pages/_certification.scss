@@ -1,0 +1,31 @@
+.certifications-container {
+  padding: 50px;
+  width: 100vw;
+  background-color: #BEF0CB;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .certifications-images {
+    width: 65vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    .certification-img {
+
+      img {
+        width: 90px;
+        height: 90px;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1000px) {
+  .certifications-images .certification-img img {
+    width: 50px !important;
+    height: 50px !important;
+  }
+}

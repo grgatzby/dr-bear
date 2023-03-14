@@ -161,32 +161,73 @@ puts "-------------------"
 
 # implement nutrients name and description
 nutrients = [
-  { name: "Vitamin A", description: "Vitamin A description" },
-  { name: "Vitamin B1 (Thiamin)", description: "Vitamin B1 description" },
-  { name: "Vitamin B2 (Riboflavin)", description: "Vitamin B2 description" },
+  { name: "Vitamin A",
+    description: "Vitamin A description",
+    nutri_code: "320" },
 
-  { name: "Vitamin B3 (Niacin)", description: "Vitamin B3 description" },
-  { name: "Vitamin B6", description: "Vitamin B6 description" },
-  { name: "Vitamin B12", description: "Vitamin B12 description" },
+  { name: "Vitamin B1 (Thiamin)",
+    description: "Vitamin B1 description",
+    nutri_code: "404" },
 
-  { name: "Vitamin C", description: "Vitamin C description" },
-  { name: "Calcium", description: "Calcium description" },
-  { name: "Vitamin D", description: "Vitamin D description" },
+  { name: "Vitamin B2 (Riboflavin)",
+    description: "Vitamin B2 description",
+    nutri_code: "405" },
 
-  { name: "Vitamin E", description: "Vitamin E description" },
-  { name: "Folate", description: "Folate description" },
-  { name: "Vitamin K", description: "vitamin K description" },
+  { name: "Vitamin B3 (Niacin)",
+    description: "Vitamin B3 description",
+    nutri_code: "406" },
 
-  { name: "Magnesium", description: "Magnesium description" },
-  { name: "Potassium", description: "Potassium description" },
-  { name: "Sodium", description: "Sodium description" }
+  { name: "Vitamin B6",
+    description: "Vitamin B6 description",
+    nutri_code: "415" },
+
+  { name: "Vitamin B12",
+    description: "Vitamin B12 description",
+    nutri_code: "418" },
+
+  { name: "Vitamin C",
+    description: "Vitamin C description",
+    nutri_code: "401" },
+
+  { name: "Calcium",
+    description: "Calcium description",
+    nutri_code: "301" },
+
+  { name: "Vitamin D",
+    description: "Vitamin D description",
+    nutri_code: "328" },
+
+  { name: "Vitamin E",
+    description: "Vitamin E description",
+    nutri_code: "323" },
+
+  { name: "Folate",
+    description: "Folate description",
+    nutri_code: "417" },
+
+  { name: "Vitamin K",
+    description: "vitamin K description",
+    nutri_code: "430" },
+
+  { name: "Magnesium",
+    description: "Magnesium description",
+    nutri_code: "304" },
+
+  { name: "Potassium",
+    description: "Potassium description",
+    nutri_code: "306" },
+
+  { name: "Sodium",
+    description: "Sodium description",
+    nutri_code: "307" }
 ]
 id_nutr = []
 
 nutrients.each do |nutrient|
   seeded_nutrient = Nutrient.create!(
     name: nutrient[:name],
-    description: nutrient[:description]
+    description: nutrient[:description],
+    nutri_code: nutrient[:nutri_code]
   )
   id_nutr.push(seeded_nutrient.id)
 end
