@@ -1,0 +1,78 @@
+<div class="main-category-container">
+  <div class="category-page-style-container">
+    <div class="category-titles-container">
+      <div class="category-main-title">
+        <h1>Take Our Quiz</h1>
+      </div>
+      <div class="category-second-title">
+        <h2>Choose a quiz category and get personalized suggestions to improve your nutrient intake</h2>
+      </div>
+    </div>
+    <div class="centered-category-content-container">
+
+      <!-- simple_form creates a new quiz -->
+
+
+      <%= simple_form_for(@quiz) do |f| %>
+        <%= f.input :categories,  collection: @categories, label_method: :name,  as: :check_boxes %>
+        <%= f.submit %>
+      <% end %>
+
+
+      <!--
+      form_tag does not create a new quiz (strong params issue for Quizzes#create)
+      LET'S NOT KEEP THIS CODE
+      -->
+
+      <!-- GC multi-select with small buttons-->
+      <!--
+      <div class="small-buttons">
+        <%= form_tag(action: "create", method: "get") do %>
+          <% @categories.each do |category| %>
+            <div class="cat2 cat2-checked">
+              <%= label_tag() do%>
+                <%= check_box_tag(category.id) %>
+                <span><%= category.name %></span>
+              <% end %>
+            </div>
+          <% end %>
+          <%= hidden_field_tag(:category, "index") %>
+          <p><%= submit_tag("Go to questions", class: "btn btn-primary") %></p>
+        <% end %>
+      </div>
+      -->
+      <!--  end of multi-select small buttons-->
+
+
+      <!-- GC multi-select with photo cards-->
+      <!--
+      <div class="photo-cards">
+        <div class="centered-category-content-container">
+          <div class="all-cards-container">
+            <%= form_tag(action: "create", method: "get") do %>
+              <% @categories.each do |category| %>
+                <div class="cat cat-checked">
+                  <%= label_tag() do%>
+                    <div class="cat-card-quiz-img">
+                      <%= render "img", category: category %>
+                    </div>
+                    <%= check_box_tag(category.id) %>
+                    <div class="cat-card-title-text">
+                      <h3><%= category.name %></h3>
+                    </div>
+                  <% end %>
+                </div>
+              <% end %>
+              <%= hidden_field_tag(:category, "index") %>
+              <div class = "button-green" >
+                <p><%= submit_tag("Go to questions", class: "btn btn-primary") %></p>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      -->
+      <!-- end of multi-select large cards -->
+
+    </div>
+  </div>
+</div>
