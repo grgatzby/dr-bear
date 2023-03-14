@@ -1,46 +1,6 @@
 <div class="results-container">
   <h1 id="title-all-results">Your Results</h1>
-
-  <div class="results-content-container">
-    <div class="category-container">
-      <!-- Code below to generate images based on category name, currently disabled because it is not needed %> -->
-      <!-- <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?<%=@category.name%>" alt=""></div> -->
-      <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?sleeping" alt="Category-img"></div>
-      <div class="category-content-text">
-        <div class="category-name-container">
-          <p><%= @category.name %></p>
-        </div>
-        <div class="category-description-container">
-          <p><%= @category.description %></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="nutrients-container">
-      <div class="advice-text-container">
-        <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISSAPEAR %>
-        <h3 id="title-nutrient-results">Based on your results, we recommend the following nutrients</h3>
-      </div>
-
-      <% @nutrient.each do |nutrient| %>
-        <% nutri = Nutrient.find(nutrient) %>
-
-        <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
-
-        <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
-          <div class="img-nutrient-container"><img src="<%= unsplash_url %>" alt=""></div>
-          <div class="nutrient-content-text">
-            <div class="nutrient-name-container">
-              <p><%= nutri.name %></p>
-            </div>
-            <div class="nutrient-description-container">
-              <p><%= nutri.description %></p>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <%= render "one_cat_result", category: @category, nutrients: @category_nutrients %>
 <!--  <div class="flexify-box column-direction">
       <p>Please sign up or log in to see our personalized proposal</p>
       <p><%= link_to "Login / signup", result_path(@result.id), data: {"turbo_method": :patch}, class: "btn btn-primary"%>

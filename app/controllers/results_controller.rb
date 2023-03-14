@@ -1,28 +1,31 @@
 class ResultsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :create]
+  skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
+    # used when quiz_type == "multi_categories"
+
+    quiz = Quiz.last
+    @categories = []
+    @categories_nutrients = []
+    quiz.categories.each do |category_name|
+      category = Category.find_by(name: category_name)
+      @categories << category
+      result = category.results.find_by(quiz_id: quiz.id)
+      @categories_nutrients << category_nutrient_ids(result)
+    end
   end
 
   def show
     # cat_nutrients = CategoryNutrient.all
-    # if quiz_type == "single_category"
-      @result = Result.find(params[:id])
-      result_score = @result.total_score
-      cat_id = @result.category_id
-      @category = Category.find(cat_id)
-
-      @nutrient = []
-      nutrient_arr = CategoryNutrient.where(category_id: cat_id).where("min_score <= ?", result_score).where("max_score >= ?", result_score)
-      nutrient_arr.each { |element| @nutrient << element.nutrient_id }
-      if nutrient_arr.empty?
-        flash[:notice] = "No nutrients needed."
-        redirect_back(fallback_location: categories_path)
-      end
-    else
-      #if quiz_type == "multi_categories"
+    # params[:id] = id of the result
+    @result = Result.find(params[:id])
+    @category_nutrients = category_nutrient_ids(@result)
+    if @category_nutrients.empty? && params[:quiz_type] == "single_category"
+      flash[:notice] = "No nutrients needed."
+      redirect_back(fallback_location: categories_path)
     end
   end
+
 
   def update
     @result = Result.find(params[:id])
@@ -69,7 +72,7 @@ class ResultsController < ApplicationController
       )
 
       # show the results
-      redirect_to result_path(@category_result.id, quiz_type: :multi_categories) if params[:last_quiz] == "true"
+      redirect_to results_path(quiz_type: :multi_categories) if params[:last_quiz] == "true"
     end
   end
 
@@ -83,5 +86,17 @@ class ResultsController < ApplicationController
 
   def user_params
     params.require(:result).permit(:user_id, :max_score, :total_score, :quiz_id)
+  end
+
+  def category_nutrient_ids(result)
+    result_score = result.total_score
+    cat_id = result.category_id
+    @category = Category.find(cat_id)
+    # could the 3 abobe lines be replaced with: @category = result.category ?
+    nutrient_arr = CategoryNutrient.where(category_id: @category.id).where("min_score <= ?", result_score).where("max_score >= ?", result_score)
+    # category_nutrients = []
+    # nutrient_arr.each { |element| category_nutrients << element.nutrient_id }
+    # category_nutrients
+    nutrient_arr.map { |element| element.nutrient_id }
   end
 end

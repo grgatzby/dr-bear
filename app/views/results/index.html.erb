@@ -1,1 +1,9 @@
-<h1>Redirects to Categories home page</h1>
+<h1>Your results</h1>
+<div class="results-container">
+  <h1 id="title-all-results">Your Results</h1>
+  <div class="results-content-container">
+  <% @categories.each_with_index do |category, index| %>
+    <%= render "one_cat_result", category: category, nutrients: @categories_nutrients[index] %>
+  <% end %>
+  </div>
+</div>
