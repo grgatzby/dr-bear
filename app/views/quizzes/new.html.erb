@@ -2,21 +2,28 @@
   <div class="category-page-style-container">
     <div class="category-titles-container">
       <div class="category-main-title">
-        <h1>Take Our Quiz</h1>
+        <h1>Dr.Bear Quiz</h1>
       </div>
       <div class="category-second-title">
-        <h2>Choose a quiz category and get personalized suggestions to improve your nutrient intake</h2>
+        <h2>Select all the health-issues you would like to focus on.</h2>
       </div>
     </div>
     <div class="centered-category-content-container">
-
       <!-- simple_form creates a new quiz -->
+      <div class="row" data-controller="checkbox">
+        <%= simple_form_for(@quiz) do |f| %>
+          <%= f.input :categories,
+                collection: @categories,
+                as: :check_boxes,
+                input_html: { class: "card-categories-checkbox" },
+                item_wrapper_class: 'tag-item-categories' %>
+          <%= f.button :submit, class: 'btn btn-primary btn-categories', value: 'Continue' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
 
-
-      <%= simple_form_for(@quiz) do |f| %>
-        <%= f.input :categories,  collection: @categories, label_method: :name,  as: :check_boxes %>
-        <%= f.submit %>
-      <% end %>
 
 
       <!--
@@ -72,7 +79,3 @@
       </div>
       -->
       <!-- end of multi-select large cards -->
-
-    </div>
-  </div>
-</div>
