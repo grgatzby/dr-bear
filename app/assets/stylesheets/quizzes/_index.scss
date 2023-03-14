@@ -1,3 +1,77 @@
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+
+.main-category-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-bottom: 0px;
+  padding: 3.5% 15% 0% 15%;
+  //background-color: #ECF2FF;
+  //background-color: #D2c7ff;
+  //background-color: rgba(210, 199, 255, 0.5);
+  background: rgb(236,242,255);
+  background: radial-gradient(circle, rgba(236,242,255,0.6) 60%, rgba(210,199,255,0.6) 97%);
+  font-family: 'Montserrat', sans-serif;
+  min-height: calc(100vh);
+}
+
+
+.category-page-style-container {
+  height: 80vh;
+  width: 70vw;
+  // background-color: rgba(126, 115, 255, 0.1);
+  border-radius: 20px;
+}
+
+.btn-primary {
+  margin: 0 auto;
+  padding: 5px 24px;
+  border-radius: 30px;
+
+  :hover {
+    box-shadow: 1px 1px 3px 3px black;
+    background-color: aqua;
+  }
+}
+
+
+.category-titles-container {
+  color: 	#7E73FF;
+  .category-main-title {
+    text-align: center;
+    padding-bottom: 0.5%;
+
+    h1 {
+      margin: 0 !important;
+      padding-top: 5%;
+      padding-bottom: 1%;
+      font-size: 1.8rem;
+      font-weight: 600;
+      filter: brightness(70%);
+      opacity: 0.9;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+
+  .category-second-title {
+    text-align: center;
+    padding-bottom: 3%;
+
+    h2 {
+      font-size: 1.3rem;
+      font-weight: 400;
+      filter: brightness(70%);
+      opacity: 0.9;
+      font-family: 'Montserrat', sans-serif;
+    }
+  }
+}
+
+///media
+///
+
+
 .row .centered-category-content-container {
   padding: 0px;
   margin: 0;
@@ -39,8 +113,8 @@
   align-items: center;
   font-size: 1.4rem;
   border-radius: 20px;
-  width: 200px;
-  height: 100px;
+  width: 190px;
+  height: 80px;
   background-color: rgba(236, 234, 255, 0.7);
   color: #7E73FF;
   border: 1px solid #7E73FF;
@@ -48,15 +122,41 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
+.card-categories-checkbox + label::before {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  font-size: 20px;
+  padding: 2px 6px 2px 2px;
+  content: "\f067";
+  transition: transform .3s ease-in-out;
+}
+
+
 .card-categories-checkbox:hover + label {
   box-shadow: none;
 }
 
 .card-categories-checkbox:checked + label {
+  border: 2px solid #1bdbf8;
+  background-color: #7E73FF;
+  color: #fff;
+  transition: all .2s;
+}
+
+.card-categories-checkbox:checked + label::before {
   background-color: #7E73FF;
   color: white;
   box-shadow: none;
+  content: "\f00c";
+  transform: rotate(-360deg);
+  transition: transform .3s ease-in-out;
 }
+
 
 .row .col-form-label {
   display: none;
@@ -76,74 +176,7 @@
   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
-////////////OLD CODE/////////////
 
-
-.main-category-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  margin-bottom: 0px;
-  padding: 3.5% 15% 0% 15%;
-  background-color: #d2c7ff;
-  font-family: 'Montserrat', sans-serif;
-  min-height: calc(100vh);
-}
-
-
-.category-page-style-container {
-  height: 80vh;
-  width: 70vw;
-  //background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-}
-
-.btn-primary {
-  margin: 0 auto;
-  padding: 5px 24px;
-  border-radius: 30px;
-
-  :hover {
-    box-shadow: 1px 1px 3px 3px black;
-    background-color: aqua;
-  }
-}
-
-
-.category-titles-container {
-  .category-main-title {
-    text-align: center;
-    padding-bottom: 0.5%;
-
-    h1 {
-      margin: 0 !important;
-      padding-top: 5%;
-      padding-bottom: 1%;
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: 	#7E73FF;
-      filter: brightness(85%);
-      font-family: 'Montserrat', sans-serif;
-    }
-  }
-
-  .category-second-title {
-    text-align: center;
-    padding-bottom: 3%;
-
-    h2 {
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: 	#7E73FF;
-      filter: brightness(85%);
-      font-family: 'Montserrat', sans-serif;
-    }
-  }
-}
-
-///media
-///
 
 
 
