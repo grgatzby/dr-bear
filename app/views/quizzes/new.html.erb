@@ -2,7 +2,7 @@
   <div class="category-page-style-container">
     <div class="category-titles-container">
       <div class="category-main-title">
-        <h1>Take Our Quiz</h1>
+        <h1>Take Our Quiz (multi category)</h1>
       </div>
       <div class="category-second-title">
         <h2>Choose a quiz category and get personalized suggestions to improve your nutrient intake</h2>
@@ -10,7 +10,7 @@
     </div>
     <div class="centered-category-content-container">
 
-      <!-- GC multi-select with photo cards -->
+      <!-- simple_form creates a new quiz -->
 
 
       <%= simple_form_for(@quiz) do |f| %>
@@ -19,8 +19,33 @@
       <% end %>
 
 
-      <!-- GC multi-select with photo cards does not allows strong params for #new -->
+      <!--
+      form_tag does not create a new quiz (strong params issue for Quizzes#create)
+      LET'S NOT KEEP THIS CODE
+      -->
 
+      <!-- GC multi-select with small buttons-->
+      <!--
+      <div class="small-buttons">
+        <%= form_tag(action: "create", method: "get") do %>
+          <% @categories.each do |category| %>
+            <div class="cat2 cat2-checked">
+              <%= label_tag() do%>
+                <%= check_box_tag(category.id) %>
+                <span><%= category.name %></span>
+              <% end %>
+            </div>
+          <% end %>
+          <%= hidden_field_tag(:category, "index") %>
+          <p><%= submit_tag("Go to questions", class: "btn btn-primary") %></p>
+        <% end %>
+      </div>
+      -->
+      <!--  end of multi-select small buttons-->
+
+
+      <!-- GC multi-select with photo cards-->
+      <!--
       <div class="photo-cards">
         <div class="centered-category-content-container">
           <div class="all-cards-container">
@@ -45,6 +70,7 @@
             <% end %>
         </div>
       </div>
+      -->
       <!-- end of multi-select large cards -->
 
     </div>

@@ -2,7 +2,7 @@ class ResultsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
-    # used when quiz_type == "multi_categories"
+    # this method is used when quiz_type == "multi_categories"
 
     quiz = Quiz.last
     @categories = []
@@ -16,6 +16,7 @@ class ResultsController < ApplicationController
   end
 
   def show
+    # this method is used when quiz_type == "single_category"
     # cat_nutrients = CategoryNutrient.all
     # params[:id] = id of the result
     @result = Result.find(params[:id])
@@ -42,11 +43,9 @@ class ResultsController < ApplicationController
   end
 
   def create
-    # Previous code, probably not used
-    # @result = Result.new
-
-    # moved from the Categories/#create where it should not be
-    #gets the results from the questions form
+    # THIS METHOD REPLACES the categories/create method which was designed for single category quizzes
+    # copied from the Categories/#create where it should not stay when we implement multi categories quiz
+    # gets the results from the questions form
     # params["cat[:id]q[:id]"] => score for this category_id/question_id, in string format
     if params[:category_id]
       @category = Category.find(params[:category_id].to_i)
@@ -72,7 +71,8 @@ class ResultsController < ApplicationController
       )
 
       # show the results
-      redirect_to results_path(quiz_type: :multi_categories) if params[:last_quiz] == "true"
+      # redirect_to results_path(quiz_type: :multi_categories) if params[:last_quiz] == "true"
+      redirect_to results_path if params[:last_quiz] == "true"
     end
   end
 
@@ -89,14 +89,12 @@ class ResultsController < ApplicationController
   end
 
   def category_nutrient_ids(result)
+    # could these 3 lines be replaced with: @category = result.category ?
     result_score = result.total_score
     cat_id = result.category_id
     @category = Category.find(cat_id)
-    # could the 3 abobe lines be replaced with: @category = result.category ?
+
     nutrient_arr = CategoryNutrient.where(category_id: @category.id).where("min_score <= ?", result_score).where("max_score >= ?", result_score)
-    # category_nutrients = []
-    # nutrient_arr.each { |element| category_nutrients << element.nutrient_id }
-    # category_nutrients
     nutrient_arr.map { |element| element.nutrient_id }
   end
 end

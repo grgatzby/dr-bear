@@ -15,7 +15,9 @@
         <%= form_tag(controller: 'results', action: "create", method: "get") do %>
 
           <%= render "category_quiz", category: category, last_quiz: last_quiz%>
-
+          <!--
+          GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
+          -->
           <div class = "button-green" >
             <p><%= submit_tag("Submit", class: "btn btn-primary") %></p>
           </div>

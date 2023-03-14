@@ -1,5 +1,9 @@
 <div class="results-container">
   <h1 id="title-all-results">Your Results</h1>
+      <div class="advice-text-container">
+        <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISAPPEAR %>
+        <h3 id="title-nutrient-results">Based on your results, we recommend the following nutrients</h3>
+      </div>
   <%= render "one_cat_result", category: @category, nutrients: @category_nutrients %>
 <!--  <div class="flexify-box column-direction">
       <p>Please sign up or log in to see our personalized proposal</p>

@@ -61,7 +61,8 @@ class CategoriesController < ApplicationController
       )
 
       # show results
-      redirect_to result_path(@category_result.id, quiz_type: :single_category)
+      # redirect_to result_path(@category_result.id, quiz_type: :single_category)
+      redirect_to result_path(@category_result.id)
     end
   end
 end
