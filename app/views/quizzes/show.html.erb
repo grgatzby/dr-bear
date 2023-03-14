@@ -1,0 +1,27 @@
+<div class="questions-show">
+  <div class="black-banner">
+    <img src="<%= image_path 'side-banner1.jpg' %>" alt="">
+  </div>
+  <div class="container-questions">
+    <% @quiz.categories.each_with_index do |cat, index| %>
+      <% category = Category.find_by(name: cat) %>
+      <% last_quiz = index == @quiz.categories.length - 1 %>
+
+      <div class= "category-name">
+        <h1><%= category.name %></h1>
+      </div>
+
+      <div class="form-questions">
+        <%= form_tag(controller: 'results', action: "create", method: "get") do %>
+
+          <%= render "category_quiz", category: category, last_quiz: last_quiz%>
+
+          <div class = "button-green" >
+            <p><%= submit_tag("Submit", class: "btn btn-primary") %></p>
+          </div>
+        <% end %>
+      </div>
+
+    <% end %>
+  </div>
+</div>

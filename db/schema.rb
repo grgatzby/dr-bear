@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_08_111929) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_13_105542) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,6 +56,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_111929) do
     t.index ["category_id"], name: "index_questions_on_category_id"
   end
 
+  create_table "quizzes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "categories", default: [], array: true
+  end
+
   create_table "results", force: :cascade do |t|
     t.integer "total_score"
     t.float "max_score"
@@ -63,7 +69,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_111929) do
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "quiz_id", null: false
     t.index ["category_id"], name: "index_results_on_category_id"
+    t.index ["quiz_id"], name: "index_results_on_quiz_id"
     t.index ["user_id"], name: "index_results_on_user_id"
   end
 
@@ -86,5 +94,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_08_111929) do
   add_foreign_key "category_nutrients", "nutrients"
   add_foreign_key "questions", "categories"
   add_foreign_key "results", "categories"
+  add_foreign_key "results", "quizzes"
   add_foreign_key "results", "users"
 end

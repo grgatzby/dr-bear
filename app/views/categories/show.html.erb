@@ -1,3 +1,9 @@
+<!-- Old code for single category quiz
+ accessed through the old "Do the quiz" button in the home page; should be removed
+ now moved and adapted for multi-category quiz in the quizzes/show view.
+ Needs a dummy Quiz (with quiz.categories = ["dummy quiz"]) in the Quiz database to work.
+-->
+
 <div class="questions-show">
   <div class="black-banner">
     <img src="<%= image_path 'side-banner1.jpg' %>" alt="">
@@ -22,6 +28,7 @@
                                answer.content,
                                class: "form-check-label") %>
               </div>
+              <%= hidden_field_tag(:last_quiz, true) %>
               <%= hidden_field_tag(:category, @category.id) %>
             <% end %>
               <hr>
