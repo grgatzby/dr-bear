@@ -1,4 +1,3 @@
-<h1>Your results</h1>
 <div class="results-container">
   <h1 id="title-all-results">Your Results</h1>
       <div class="advice-text-container">
@@ -6,8 +5,27 @@
         <h3 id="title-nutrient-results">Based on your results, we recommend the following nutrients</h3>
       </div>
   <div class="results-content-container">
-  <% @categories.each_with_index do |category, index| %>
-    <%= render "one_cat_result", category: category, nutrients: @categories_nutrients[index] %>
-  <% end %>
+
+    <div class="total-nutrients-container">
+      <% @categories.each_with_index do |category, index| %>
+        <%= render "one_cat_result", category: category, nutrients: @categories_nutrients[index] %>
+      <% end %>
+    </div>
+
+    <div class="total-categories-container">
+      <% @categories.each_with_index do |category, index| %>
+        <div class="category-name-container">
+          <p>
+            <%= category.name %>
+          </p>
+        </div>
+        <div class="category-description-container">
+          <p>
+            <%= category.description %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>

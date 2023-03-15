@@ -1,8 +1,8 @@
-  <div class="results-content-container">
-    <div class="category-container">
+  <!-- <div class="results-content-container">
+    <div class="category-container"> -->
       <!-- Code below to generate images based on category name, currently disabled because it is not needed %> -->
       <!-- <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?<%=@category.name%>" alt=""></div> -->
-      <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?sleeping" alt="Category-img"></div>
+     <!-- <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?sleeping" alt="Category-img"></div>
       <div class="category-content-text">
         <div class="category-name-container">
           <p><%= category.name %></p>
@@ -35,4 +35,30 @@
         </div>
       <% end %>
     </div>
+  </div> -->
+
+
+
+
+<% nutrients.each do |nutrient| %>
+  <% nutri = Nutrient.find(nutrient) %>
+
+  <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
+
+  <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');" style="background-image: url('<%= unsplash_url %>')">
+    <div class="nutrient-content-text">
+      <div class="nutrient-name-container">
+        <h2 class="nutrient-card-title">
+          <%= nutri.name %>
+        </h2>
+      </div>
+      <div class="nutrient-description-container">
+        <p class="nutrient-card-body">
+          <%= nutri.description %>
+        </p>
+      </div>
+      <a href="#" class="button">Learn More</a>
+    </div>
   </div>
+<% end %>
+
