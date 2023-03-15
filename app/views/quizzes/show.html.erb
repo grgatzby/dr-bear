@@ -5,13 +5,18 @@
   <div class="container-questions">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
+
         <% @quiz.categories.each_with_index do |category_name, index| %>
           <% category = Category.find_by(name: category_name) %>
-          <div class="<%= index == 0 ? 'carousel-item active' : 'carousel-item' %>">
+          <div class="<%=index == 0 ? 'carousel-item active' : 'carousel-item'%>" >
             <%= render "category_quiz", quiz: @quiz, category: category, index: index %>
           </div>
         <% end %>
-      </div>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+        </div>
     </div>
   </div>
 </div>

@@ -16,7 +16,7 @@
           <%= radio_button_tag("cat#{category.id}q#{question.id}",
                               answer.score,
                               index == 0,
-                              class: "form-check-input hide-radio-button") %>
+                              class: "form-check-input") %>
           <%= label_tag("cat#{category.id}q#{question.id}a#{answer.id}",
                         answer.content,
                         class: "form-check-label") %>
@@ -32,10 +32,11 @@
     <!--
     GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
     -->
-    <div class = "button-carousel">
-      <% next_category = @quiz.categories[index + 1] || nil %>
-      <% btn_label = last_quiz ? "Submit"  : ">" %>
-      <%= submit_tag(btn_label, class: "btn btn-ghost carousel-control-next", data_bs_target: "#carouselExampleControls", data_bs_slide: "next") %>
-    </div>
+    <% next_category = @quiz.categories[index + 1] || nil %>
+    <% btn_label = last_quiz ? "Submit"  : ">" %>
+    <%= submit_tag(btn_label, class: "btn btn-primary", data_bs_target: "#carouselExampleControls", data_bs_slide: "next") %>
+  
+
+
   <% end %>
 </div>
