@@ -45,8 +45,10 @@
 
   <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
 
-  <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');" style="background-image: url('<%= unsplash_url %>')">
-    <div class="nutrient-content-text">
+  <div class="nutrients-content-container"
+
+       style="background-image: url('<%= unsplash_url %>')">
+    <div class="nutrient-content-text" data-controller="popover">
       <div class="nutrient-name-container">
         <h2 class="nutrient-card-title">
           <%= nutri.name %>
@@ -57,8 +59,21 @@
           <%= nutri.description %>
         </p>
       </div>
-      <a href="#" class="button">Learn More</a>
+      <a href="#" class="button" data-action="mouseenter->popover#show mouseleave->popover#hide">Learn More</a>
+
+      <template data-popover-target="content">
+        <div data-popover-target="card" class="max-w-sm rounded shadow-lg bg-white absolute left-0" style="bottom: 2rem; width: max-content;">
+          <div class="px-6 py-4 flex">
+            <img class="rounded-full h-16 w-16" src="https://avatars0.githubusercontent.com/u/8252238?s=460&amp;u=3ba211d048536bfe01d120894eba9d3254db70d5&amp;v=4" alt="">
+
+            <div class="ml-4">
+              <div class="font-bold text-xl mb-2 text-black">Guillaume Briday</div>
+              <p class="text-gray-500 text-sm">This content is in a hidden template.</p>
+            </div>
+          </div>
+        </div>
+      </template>
+
     </div>
   </div>
 <% end %>
-
