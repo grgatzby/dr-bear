@@ -1,5 +1,114 @@
-.a-bit-lower-than-h1s {
+.learn-page-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 55px;
+}
+
+.learn-image-container {
   text-align: center;
-  margin-top: 100px;
-  // width: 200px;
+  width: 100vw;
+  height: 60vh;
+  background-position: center;
+  background-size: cover;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 80px;
+  background-color:rgb(65, 112, 146);
+
+  .text-inside-image-container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+  }
+
+  .welcome-text-container {
+    width: 500px;
+    height: 100px;
+    // background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h2 {
+      font-weight: 600;
+      filter: brightness(100%);
+      color: white;
+    }
+
+  }
+
+  .after-welcome-text-container {
+    width: 500px;
+    height: 100px;
+    // background-color: red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    h3 {
+      font-weight: 600;
+      filter: brightness(100%);
+      color: white;
+    }
+  }
+}
+
+
+.main-container-for-text {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+}
+
+.secondary-container-for-text {
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}
+
+.text-for-info-container {
+  width: 600px;
+
+  .suplements-info-container {
+    margin-top: 50px;
+    text-align: left;
+    padding-left: 10px;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    text-align: justify;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #333;
+      margin: 0;
+    }
+
+    li {
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+      margin-left: -25px;
+    }
+  }
+
+}
+
+
+.image-abovecontainerr {
+  margin-top: 20px;
+  width: 600px;
+  height: 400px;
+  background-position: center;
+  background-size: cover;
 }
