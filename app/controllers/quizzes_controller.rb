@@ -3,7 +3,8 @@ class QuizzesController < ApplicationController
 
   def show
     @quiz = Quiz.find(params[:id])
-    @results = @quiz.categories.map { Result.new }
+    # @results = @quiz.categories.map { Result.new }
+    @result = Result.new
   end
 
   def new
@@ -12,17 +13,21 @@ class QuizzesController < ApplicationController
   end
 
   def create
+
     @quiz = Quiz.new(quiz_params)
     # replaces @quiz.categories with an array of selected category names
     @quiz.categories = []
-    categories = Category.all
-    categories.each do |category|
-      @quiz.categories.push(category.name) if params["quiz"]["categories"].include?(category.id.to_s)
+    Category.all.each do |category|
+      @quiz.categories << category.name if params["quiz"]["categories"].include?(category.id.to_s)
     end
-
-    @quiz.save
-    # goes to quizzes show view
-    redirect_to quiz_path(@quiz)
+    if @quiz.categories.empty?
+      flash[:notice] = "Please select at least one health-issue."
+      redirect_back(fallback_location: categories_path)
+    else
+      @quiz.save
+      # goes to quizzes show view
+      redirect_to quiz_path(@quiz)
+    end
   end
 
   private
