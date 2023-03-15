@@ -3,36 +3,25 @@
     <img src="<%= image_path 'side-banner1.jpg' %>" alt="">
   </div>
   <div class="container-questions">
-    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-ride="carousel">
-      <!-- Indicators-->
-      <div class="carousel-indicators">
-        <% @quiz.categories.each_with_index do |category_name, index| %>
-          <button type="button" data-bs-target="#carouselExampleControls" data-bs-slide-to="<%=index%>" class="<%=index == 0 ? 'active' : ''%>" aria-current="<%=index == 0 ? 'true' : ''%>" aria-label="<%=category_name%>"></button>
-        <% end %>
-      </div>
-
-      <!-- quizzes-->
-      <div class="carousel-inner">
-        <% @index_active = 0 %>
-        <% @quiz.categories.each_with_index do |category_name, index| %>
-          <% category = Category.find_by(name: category_name) %>
-
-          <div data-controller ="quiz" class="<%=index == 0 ? 'carousel-item active' : 'carousel-item'%>" >
-            <%= render "category_quiz", quiz: @quiz, category: category, index: index %>
-             <!--
-            <p><%= "back to show: #{@index_active}" %></p>
-             -->
-          </div>
-        <% end %>
-      </div>
-
-      <!-- next slide button-->
-
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
-
+    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="false">
+      <%= simple_form_for [@quiz, @result] do |f|%>
+        <div class="carousel-inner">
+          <% @quiz.categories.each_with_index do |category_name, index| %>
+            <% class_item = index == 0 ? "carousel-item active" : "carousel-item"%>
+            <div class="<%= class_item %>">
+              <%= render "category_quiz", category_name: category_name, index: index, f: f %>
+              <% if index == @quiz.categories.size - 1 %>
+                <%# f.submit %>
+                <%= f.button :submit, class: 'btn btn-primary btn-categories', value: 'Submit Quiz' %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
     </div>
   </div>
 </div>
