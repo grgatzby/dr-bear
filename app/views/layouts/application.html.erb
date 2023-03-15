@@ -33,7 +33,9 @@
   <body>
     <% if params[:controller] == "pages"  %>
       <%= render "shared/navbar" %>
-    <% else %>
+    <% elsif params[:controller] == "about" %>
+      <%= render "shared/navbar2" %>
+    <% else  %>
       <%= render "shared/navbar2" %>
     <% end %>
     <%= render "shared/flashes" %>
