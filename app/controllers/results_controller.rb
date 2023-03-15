@@ -5,14 +5,16 @@ class ResultsController < ApplicationController
   require "rest-client"
 
   def index
-  # start of FoodData Central API call
+    # THIS METHOD NOW REPLACES the results/#show method below
+    # it is used for multi categories quizzes
+    # start of FoodData Central API call
     query = "description:raw "
     data_source = "Foundation" # "Foundation" "SR Legacy" "Survey (FNDDS)"
     num_results = 200
     num_page = 1
-    sort_by = "dataType.keyword"   # "dataType.keyword"
+    sort_by = "dataType.keyword" # "dataType.keyword"
     sort_order = "asc"  # "asc" "desc"
-    all_words = "true" #"true" "false"
+    all_words = "true"  # "true" "false"
     query_input = "query=#{query}&dataType=#{data_source}&pageSize=#{num_results}&pageNumber=#{num_page}&sortBy=#{sort_by}&sortOrder=#{sort_order}&requireAllWords=#{all_words}"
     base_url = "https://api.nal.usda.gov/fdc/v1/foods/search?api_key="
     api_key = "aspXTzPYagPtfEmDa8Sj6iCRFbAGSjKAH6Xm7cSl&"
@@ -20,7 +22,7 @@ class ResultsController < ApplicationController
     search_results = RestClient.get(search_url, headers={})
     @results = JSON.parse(search_results)
     @food_item = @results["foods"]
-  # end of FoodData Central API call
+    # end of FoodData Central API call
 
     quiz = Quiz.last
     @categories = []
@@ -34,9 +36,10 @@ class ResultsController < ApplicationController
   end
 
   def show
-    # this method is used when quiz_type == "single_category"
-    # cat_nutrients = CategoryNutrient.all
-    # params[:id] = id of the result
+    # no longer used
+    # THIS METHOD IS TO BE BE REMOVED when we launch multi category quiz
+    # it is used for single category quizzes
+    # nb: params[:id] = id of the result from the quiz
     @result = Result.find(params[:id])
     @category_nutrients = category_nutrient_ids(@result)
     if @category_nutrients.empty? && params[:quiz_type] == "single_category"
@@ -45,15 +48,12 @@ class ResultsController < ApplicationController
     end
   end
 
-
   def update
     @result = Result.find(params[:id])
     if current_user
       # user will have to login (or sign up) if not already logged in (to display pills bundles to buy)
       @user = current_user
       @result.update(user_id: @user.id)
-      # @result.update(user_params)
-      # redirect_to basket_path(@result.id)
     else
       # user has not logged in
       redirect_back(fallback_location: categories_path)
@@ -61,43 +61,42 @@ class ResultsController < ApplicationController
   end
 
   def create
-    # THIS METHOD REPLACES the categories/create method which was designed for single category quizzes
+    # THIS METHOD NOW REPLACES the categories/create method which was designed for single category quizzes
     # copied from the Categories/#create where it should not stay when we implement multi categories quiz
     # gets the results from the questions form
     # params["cat[:id]q[:id]"] => score for this category_id/question_id, in string format
-    if params[:category_id]
-      @category = Category.find(params[:category_id].to_i)
-      @questions = @category.questions
-      @max_category_score = 0
-      @category_score = 0
-      @questions.each do |question|
-        @category_score += params["cat#{params[:category_id]}q#{question.id}"].to_i
-        max_question_score = question.answers.map{ |answer| answer.score }.max
-        @max_category_score += max_question_score
+    # assigns dummy user if not logged in
+    user_to_attach = current_user || User.find_by(first_name: "Crash", last_name: "Dummy")
+    quiz_id = params[:quiz_id].to_i
+    quiz_categories_names = Quiz.find(quiz_id).categories
+    quiz_categories_names.each do |category_name|
+      category = Category.find_by(name: category_name)
+      questions = category.questions
+      max_category_score = 0
+      category_score = 0
+      questions.each do |question|
+        if params["category#{category.id}question#{question.id}"]
+          category_score += params["category#{category.id}question#{question.id}"].to_i
+          max_question_score = question.answers.map{ |answer| answer.score }.max
+          max_category_score += max_question_score
+        end
       end
-
-      user_to_attach = current_user || User.find_by(first_name: "Crash", last_name: "Dummy")
-      quiz_id = params[:quiz_id].to_i
-
-      #create result
-      @category_result = Result.create!(
-        total_score: @category_score,
-        max_score: @max_category_score,
+      #create a Result instance for the category
+      Result.create!(
+        total_score: category_score,
+        max_score: max_category_score,
         user_id: user_to_attach.id,
-        category_id: @category.id,
+        category_id: category.id,
         quiz_id: quiz_id
       )
-
-      # show the results
-      # redirect_to results_path(quiz_type: :multi_categories) if params[:last_quiz] == "true"
-      redirect_to results_path if params[:last_quiz] == "true"
     end
+    redirect_to results_path
   end
 
   def basket
     @result = Result.find(params[:id])
     @user = current_user
-    #display of recommended nutrients or supplements and checkout
+    #TO DO : display of recommended nutrients or supplements and checkout
   end
 
   private
@@ -107,11 +106,10 @@ class ResultsController < ApplicationController
   end
 
   def category_nutrient_ids(result)
-    # could these 3 lines be replaced with: @category = result.category ?
     result_score = result.total_score
     cat_id = result.category_id
-    @category = Category.find(cat_id)
 
+    @category = Category.find(cat_id)
     nutrient_arr = CategoryNutrient.where(category_id: @category.id).where("min_score <= ?", result_score).where("max_score >= ?", result_score)
     nutrient_arr.map { |element| element.nutrient_id }
   end

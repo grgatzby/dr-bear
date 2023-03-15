@@ -11,27 +11,11 @@ class CategoriesController < ApplicationController
     @results = params[:result]
   end
 
-  def multishow
-    @categories = Category.select { |category| params[category.id.to_s] }
-    @categories.each do |cat|
-      @category = cat
-      @questions = @category.questions
-      cat_results = {}
-      cat_results[:category_id] = @category.id
-      cat_results[:category_name] = @category.name
-      @questions = @category.questions
-      params[:id] = @category.id
-      # go to show page (this category quiz)
-    end
-    # redirect_to category_path(@cat_id) unless params[:id]
-    @results = params[:result]
-  end
-
   def create
-    # THIS METHOD SHOULD BE REMOVED when we launch multi category quiz:
+    # THIS METHOD IS TO BE BE REMOVED when we launch multi category quiz:
     # this code is only accessed through the single category quiz
-    # When removed, the categories/create route should be deleted
-    # and :create removed from the skip_before_action list in this controller
+    # ALSO: When removed, the categories/create route should be deleted
+    # AND :create removed from the skip_before_action list at the top of this controller
 
     # This method gets the results from the questions form
     # params["cat[:id]q[:id]"] => score for this category_id/question_id, in string format
@@ -48,7 +32,8 @@ class CategoriesController < ApplicationController
       end
 
       user_to_attach = current_user || User.find_by(first_name: "Crash", last_name: "Dummy")
-      # need to seed dummy quiz for old version (one category quiz) to work
+      # need a dummy quiz for old version (one category quiz) to work
+      # to be created manually or through the seeds if we keep the single category quiz user story
       quizz_id = Quiz.find_by(categories: ["dummy quiz"]).id
 
       #create result

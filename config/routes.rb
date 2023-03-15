@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   # root "articles#index"
   post "multi_category", to: "categories#multishow"
   resources :categories, only: [:index, :show, :create]
-  resources :results, only: [:index, :show, :create]
-  resources :quizzes, only: [:show, :new, :create]
+  resources :results, only: [:index, :show]
+  resources :quizzes, only: [:show, :new, :create] do
+    resources :results, only: [:create]
+  end
   root to: "pages#home"
 
   get "about", to: "pages#about"

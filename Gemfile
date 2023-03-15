@@ -80,5 +80,4 @@ end
 
 # custom gems
 gem "faker"
-
 gem "rest-client"

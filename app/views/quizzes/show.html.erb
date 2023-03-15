@@ -3,27 +3,25 @@
     <img src="<%= image_path 'side-banner1.jpg' %>" alt="">
   </div>
   <div class="container-questions">
-    <% @quiz.categories.each_with_index do |cat, index| %>
-      <% category = Category.find_by(name: cat) %>
-      <% last_quiz = index == @quiz.categories.length - 1 %>
-
-      <div class= "category-name">
-        <h1><%= category.name %></h1>
-      </div>
-
-      <div class="form-questions">
-        <%= form_tag(controller: 'results', action: "create", method: "get") do %>
-
-          <%= render "category_quiz", category: category, last_quiz: last_quiz%>
-          <!--
-          GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
-          -->
-          <div class = "button-green" >
-            <p><%= submit_tag("Submit", class: "btn btn-primary") %></p>
-          </div>
-        <% end %>
-      </div>
-
-    <% end %>
+    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="false">
+      <%= simple_form_for [@quiz, @result] do |f|%>
+        <div class="carousel-inner">
+          <% @quiz.categories.each_with_index do |category_name, index| %>
+            <% class_item = index == 0 ? "carousel-item active" : "carousel-item"%>
+            <div class="<%= class_item %>">
+              <%= render "category_quiz", category_name: category_name, index: index, f: f %>
+              <% if index == @quiz.categories.size - 1 %>
+                <%# f.submit %>
+                <%= f.button :submit, class: 'btn btn-primary btn-categories', value: 'Submit Quiz' %>
+              <% end %>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div>
 </div>
