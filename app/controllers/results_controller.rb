@@ -2,7 +2,8 @@ class ResultsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   def index
-    # this method is used when quiz_type == "multi_categories"
+    # THIS METHOD NOW REPLACES the below results/#show nethod
+    # it is used for multi categories quizzes
 
     quiz = Quiz.last
     @categories = []
@@ -16,9 +17,9 @@ class ResultsController < ApplicationController
   end
 
   def show
-    # this method is used when quiz_type == "single_category"
-    # cat_nutrients = CategoryNutrient.all
-    # params[:id] = id of the result
+    # THIS METHOD IS TO BE BE REMOVED when we launch multi category quiz
+    # it is used for single category quizzes
+    # nb: params[:id] = id of the result from the quiz
     @result = Result.find(params[:id])
     @category_nutrients = category_nutrient_ids(@result)
     if @category_nutrients.empty? && params[:quiz_type] == "single_category"
@@ -43,7 +44,7 @@ class ResultsController < ApplicationController
   end
 
   def create
-    # THIS METHOD REPLACES the categories/create method which was designed for single category quizzes
+    # THIS METHOD NOW REPLACES the categories/create method which was designed for single category quizzes
     # copied from the Categories/#create where it should not stay when we implement multi categories quiz
     # gets the results from the questions form
     # params["cat[:id]q[:id]"] => score for this category_id/question_id, in string format

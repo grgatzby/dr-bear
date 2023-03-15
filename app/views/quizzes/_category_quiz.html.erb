@@ -1,41 +1,41 @@
-      <!-- used to change behaviour od the last button -->
-      <% last_quiz = index == @quiz.categories.length - 1 %>
+<!-- last quiz variable allows changing the label of the last button -->
+<% last_quiz = index == @quiz.categories.length - 1 %>
 
-      <div class= "category-name">
-        <h1><%= category.name %></h1>
-      </div>
+<div class= "category-name">
+  <h1><%= category.name %></h1>
+</div>
 
-      <div class="form-questions">
-        <%= form_tag(controller: 'results', action: "create", method: "get") do %>
-          <p></p>
-          <hr>
-          <% category.questions.each do |question| %>
-            <p><%= question.content %></p>
-            <% question.answers.each_with_index do |answer, index| %>
-              <div class="form-check">
-                <%= radio_button_tag("cat#{category.id}q#{question.id}",
-                                    answer.score,
-                                    index == 0,
-                                    class: "form-check-input") %>
-                <%= label_tag("cat#{category.id}q#{question.id}a#{answer.id}",
-                              answer.content,
-                              class: "form-check-label") %>
-              </div>
+<div class="form-questions">
+  <%= form_tag(controller: 'results', action: "create", method: "get") do %>
+    <p></p>
+    <hr>
+    <% category.questions.each do |question| %>
+      <p><%= question.content %></p>
+      <% question.answers.each_with_index do |answer, index| %>
+        <div class="form-check">
+          <%= radio_button_tag("cat#{category.id}q#{question.id}",
+                              answer.score,
+                              index == 0,
+                              class: "form-check-input hide-radio-button") %>
+          <%= label_tag("cat#{category.id}q#{question.id}a#{answer.id}",
+                        answer.content,
+                        class: "form-check-label") %>
+        </div>
 
-              <%= hidden_field_tag(:quiz_id, @quiz.id) %>
-              <%= hidden_field_tag(:last_quiz, last_quiz) %>
-              <%= hidden_field_tag(:category_id, category.id) %>
-            <% end %>
-            <hr>
-          <% end %>
+        <%= hidden_field_tag(:quiz_id, @quiz.id) %>
+        <%= hidden_field_tag(:last_quiz, last_quiz) %>
+        <%= hidden_field_tag(:category_id, category.id) %>
+      <% end %>
+      <hr>
+    <% end %>
 
-          <!--
-          GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
-          -->
-          <div class = "button-green" >
-          <% next_category = @quiz.categories[index+1] || nil %>
-          <% btn_label = last_quiz ? "Submit"  : "Go to #{next_category}" %>
-            <p><%= submit_tag(btn_label, class: "btn btn-primary") %></p>
-          </div>
-        <% end %>
-      </div>
+    <!--
+    GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
+    -->
+    <div class = "button-carousel">
+      <% next_category = @quiz.categories[index + 1] || nil %>
+      <% btn_label = last_quiz ? "Submit"  : ">" %>
+      <%= submit_tag(btn_label, class: "btn btn-ghost carousel-control-next", data_bs_target: "#carouselExampleControls", data_bs_slide: "next") %>
+    </div>
+  <% end %>
+</div>
