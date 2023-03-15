@@ -7,13 +7,13 @@ Rails.application.routes.draw do
   post "multi_category", to: "categories#multishow"
   resources :categories, only: [:index, :show, :create]
 
-  resources :results, only: [:show]
+  resources :results, only: [:show, :index]
   root to: "pages#home"
-  get "results", to: "pages#home"
+  # get "results", to: "pages#home" TEMP need to test API post on page
+  # get "results", to: "pages#home"
 
   get "about", to: "pages#about"
   get "learn", to: "pages#learn"
-  get "results", to: "pages#home"
   get "results/:id/basket", to: "results#basket", as: "basket"
   patch "results/:id", to: "results#update"
 end

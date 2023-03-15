@@ -1,1 +1,37 @@
-<h1>Redirects to Categories home page</h1>
+
+<div class="results-container">
+  <h1 id="title-all-results">Your Results</h1>
+
+  <div class="results-content-container">
+
+    <div class="nutrients-container">
+      <div class="advice-text-container">
+        <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISSAPEAR %>
+        <h3 id="title-nutrient-results">Based on your results, we recommend the following nutrients</h3>
+      </div>
+
+      <% @nutrient.each do |nutrient| %>
+        <% nutri = Nutrient.find(nutrient) %>
+
+        <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
+
+        <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
+          <div class="img-nutrient-container"><img src="<%= unsplash_url %>" alt=""></div>
+          <div class="nutrient-content-text">
+            <div class="nutrient-name-container">
+              <p><%= nutri.name %></p>
+            </div>
+            <div class="nutrient-description-container">
+              <p><%= nutri.description %></p>
+            </div>
+
+
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+  <div>
+  </div>
+  </div>
+</div>
