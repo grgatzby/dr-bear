@@ -1,9 +1,28 @@
 class ResultsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
+  require "json"
+  require "rest-client"
+
   def index
     # THIS METHOD NOW REPLACES the results/#show method below
     # it is used for multi categories quizzes
+    # start of FoodData Central API call
+    query = "description:raw "
+    data_source = "Foundation" # "Foundation" "SR Legacy" "Survey (FNDDS)"
+    num_results = 200
+    num_page = 1
+    sort_by = "dataType.keyword" # "dataType.keyword"
+    sort_order = "asc"  # "asc" "desc"
+    all_words = "true"  # "true" "false"
+    query_input = "query=#{query}&dataType=#{data_source}&pageSize=#{num_results}&pageNumber=#{num_page}&sortBy=#{sort_by}&sortOrder=#{sort_order}&requireAllWords=#{all_words}"
+    base_url = "https://api.nal.usda.gov/fdc/v1/foods/search?api_key="
+    api_key = "aspXTzPYagPtfEmDa8Sj6iCRFbAGSjKAH6Xm7cSl&"
+    search_url = base_url+api_key+query_input
+    search_results = RestClient.get(search_url, headers={})
+    @results = JSON.parse(search_results)
+    @food_item = @results["foods"]
+    # end of FoodData Central API call
 
     quiz = Quiz.last
     @categories = []
@@ -16,7 +35,8 @@ class ResultsController < ApplicationController
     end
   end
 
-  def show    # no longer used
+  def show
+    # no longer used
     # THIS METHOD IS TO BE BE REMOVED when we launch multi category quiz
     # it is used for single category quizzes
     # nb: params[:id] = id of the result from the quiz
@@ -28,9 +48,7 @@ class ResultsController < ApplicationController
     end
   end
 
-
   def update
-
     @result = Result.find(params[:id])
     if current_user
       # user will have to login (or sign up) if not already logged in (to display pills bundles to buy)

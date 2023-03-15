@@ -1,13 +1,39 @@
-<h1>Your results</h1>
 <div class="results-container">
-  <h1 id="title-all-results">Your Results</h1>
+  <br>
+  <h2>Your Results</h2>
+  <br>
+  <h4 id="title-all-results">You may benefit from the following nutrients</h4>
+  <hr>
       <div class="advice-text-container">
         <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISAPPEAR %>
-        <h3 id="title-nutrient-results">Based on your results, we recommend the following nutrients</h3>
+        <h3 id="title-nutrient-results"></h3>
       </div>
   <div class="results-content-container">
-  <% @categories.each_with_index do |category, index| %>
-    <%= render "one_cat_result", category: category, nutrients: @categories_nutrients[index] %>
-  <% end %>
+
+    <div class="total-nutrients-container">
+      <% @categories.each_with_index do |category, index| %>
+        <%= render "one_cat_result", category: category, nutrients: @categories_nutrients[index] %>
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h4 class="categories-advice-title">You could work on the following categories</h4>
+    <hr>
+    <div class="total-categories-container">
+      <% @categories.each_with_index do |category, index| %>
+        <div class="category-name-container">
+          <p>
+            <%= category.name %>
+          </p>
+        </div>
+        <div class="category-description-container">
+          <p>
+            <%= category.description %>
+          </p>
+        </div>
+      <% end %>
+    </div>
+
   </div>
 </div>
