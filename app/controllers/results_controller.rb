@@ -59,6 +59,7 @@ class ResultsController < ApplicationController
         @max_category_score += max_question_score
       end
 
+      # assigns dummy user if not logged in
       user_to_attach = current_user || User.find_by(first_name: "Crash", last_name: "Dummy")
       quiz_id = params[:quiz_id].to_i
 
@@ -90,11 +91,11 @@ class ResultsController < ApplicationController
   end
 
   def category_nutrient_ids(result)
-    # could these 3 lines be replaced with: @category = result.category ?
+    # could these 2 lines be replaced with: @category = result.category ?
     result_score = result.total_score
     cat_id = result.category_id
-    @category = Category.find(cat_id)
 
+    @category = Category.find(cat_id)
     nutrient_arr = CategoryNutrient.where(category_id: @category.id).where("min_score <= ?", result_score).where("max_score >= ?", result_score)
     nutrient_arr.map { |element| element.nutrient_id }
   end

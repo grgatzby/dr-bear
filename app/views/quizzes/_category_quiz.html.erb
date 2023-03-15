@@ -1,6 +1,7 @@
 <!-- last quiz variable allows changing the label of the last button -->
+<!--
 <% last_quiz = index == @quiz.categories.length - 1 %>
-
+-->
 <div class= "category-name">
   <h1><%= category.name %></h1>
 </div>
@@ -32,10 +33,35 @@
     <!--
     GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
     -->
+    <!-- for replacing ">" with go to "next_category"
+    -->
+    <% next_category = @quiz.categories[index + 1] || nil %>
+    <% last_quiz = index == @quiz.categories.length - 1 %>
+    <% btn_label = last_quiz ? "Submit"  : "Go to #{next_category}" %>
+<!--
+    <p><%= "in the partial (before change): #{@index_active}" %></p>
+-->
+<!--
+    TEST : nest the submit_tag inside a button_tag;
+    the button_tag navigates teh carousel, the submit_tag creates a record
+    :-( does not work !
+
+    <%= button_tag(type: 'button', class: "carousel-control-next", data_bs_slide:"next", data_bs_target:"#carouselExampleControls") do %>
+      <% @index_active = index+ 1 %>
+      <%= submit_tag(btn_label, class: "btn btn-carousel")%>
+    <% end %>
+-->
+      <%= submit_tag(btn_label, class: "btn btn-carousel")%>
+<!--
+    <p><%= "in the partial (after): #{@index_active}" %></p>
+-->
+
+
+<!--
     <% next_category = @quiz.categories[index + 1] || nil %>
     <% btn_label = last_quiz ? "Submit"  : ">" %>
-    <%= submit_tag(btn_label, class: "btn btn-primary", data_bs_target: "#carouselExampleControls", data_bs_slide: "next") %>
-  
+    <%= submit_tag(btn_label, class: "btn btn-primary") %>
+-->
 
 
   <% end %>

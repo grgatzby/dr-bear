@@ -24,7 +24,7 @@
 }
 
 
-.button-carousel {
+.btn-carousel {
   color: black;
   font-size: 24px;
   // color: #4A4A4A;
@@ -33,4 +33,8 @@
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
+}
+
+.btn-ghost:hover {
+  opacity: 1;
 }
