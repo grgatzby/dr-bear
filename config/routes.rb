@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get "about", to: "pages#about"
   get "learn", to: "pages#learn"
+  get "shop", to: "pages#shop"
   # get "results", to: "pages#home"
 
   get "results/:id/basket", to: "results#basket", as: "basket"
