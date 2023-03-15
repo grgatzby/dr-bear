@@ -1,53 +1,11 @@
-  <!-- <div class="results-content-container">
-    <div class="category-container"> -->
-      <!-- Code below to generate images based on category name, currently disabled because it is not needed %> -->
-      <!-- <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?<%=@category.name%>" alt=""></div> -->
-     <!-- <div class="img-category-container"><img src="https://source.unsplash.com/random/300×300/?sleeping" alt="Category-img"></div>
-      <div class="category-content-text">
-        <div class="category-name-container">
-          <p><%= category.name %></p>
-        </div>
-        <div class="category-description-container">
-          <p><%= category.description %></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="nutrients-container">
-
-      <% nutrients.each do |nutrient| %>
-        <% nutri = Nutrient.find(nutrient) %>
-
-        <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
-
-        <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
-          <div class="img-nutrient-container"><img src="<%= unsplash_url %>" alt="">
-          </div>
-          <div class="nutrient-content-text">
-            <div class="nutrient-name-container">
-              <p><%= nutri.name %></p>
-            </div>
-            <div class="nutrient-description-container">
-              <p><%= nutri.description %></p>
-            </div>
-            <%= render "food_result_recommendation", nutri: nutri %>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div> -->
-
-
-
 
 <% nutrients.each do |nutrient| %>
   <% nutri = Nutrient.find(nutrient) %>
 
   <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
 
-  <div class="nutrients-content-container"
-
-       style="background-image: url('<%= unsplash_url %>')">
+  <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
+    <div class="nutrient-image-container" style="background-image: url('<%= unsplash_url %>');"></div>
     <div class="nutrient-content-text" data-controller="popover">
       <div class="nutrient-name-container">
         <h2 class="nutrient-card-title">
@@ -55,12 +13,11 @@
         </h2>
       </div>
       <div class="nutrient-description-container">
-        <p class="nutrient-card-body">
-          <%= nutri.description %>
+        <p class="nutrient-card-body seventyone-chars">
+          <!-- <%= nutri.description %> -->
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         </p>
-      </div>
-      <a href="#" class="button" data-action="mouseenter->popover#show mouseleave->popover#hide">Learn More</a>
-
+        <a href="#" class="button" data-action="mouseenter->popover#show mouseleave->popover#hide">Learn More</a>
       <template data-popover-target="content">
         <div data-popover-target="card" class="max-w-sm rounded shadow-lg bg-white absolute left-0" style="bottom: 2rem; width: max-content;">
           <div class="px-6 py-4 flex">
@@ -71,7 +28,6 @@
           </div>
         </div>
       </template>
-
     </div>
   </div>
 <% end %>
