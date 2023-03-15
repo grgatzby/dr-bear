@@ -1,0 +1,112 @@
+.marketing-container {
+  height: 680px;
+  width: 100vw;
+  background-color: #FFF5E4;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.marketing-container .marketing-title {
+  padding-top: 70px;
+  padding-bottom: 20px;
+  top: 0;
+  color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+
+.marketing-container .marketing-title h2 {
+  font-size: 30px;
+  font-weight: 200;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.marketing-container .marketing-images-content {
+  width: 75vw;
+  height: 65vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.marketing-container .marketing-images-content .marketing-img3 img {
+  object-position: 0 -20px;
+}
+
+.marketing-container .marketing-images-content img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: 0px;
+}
+
+.marketing-container .marketing-description {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  text-align: center;
+  color: #92770e;
+  justify-content: center;
+}
+
+.marketing-container .marketing-description h3 {
+  font-size: 22px;
+}
+
+.marketing-container .marketing-description .marketing-description-body p {
+  padding-left: 7%;
+  padding-right: 7%;
+  font-size: 14px;
+  //opacity: 0.8;
+}
+
+
+@media only screen and (max-width: 1400px) {
+  .marketing-container {
+    height: 1600px !important;
+    width: 100vw;
+  }
+
+  .marketing-container .marketing-images-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .marketing-img {
+    display: flex;
+    justify-content: center;
+  }
+
+  .marketing-container .marketing-description {
+    margin: 0;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .marketing-container .marketing-description h3 {
+    font-size: 18px;
+  }
+
+  .marketing-container .marketing-description .marketing-description-body p {
+    padding-left: 0;
+    padding-right: 0;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+
+  .marketing-container {
+    height: 1350px !important;
+    width: 100vw;
+  }
+
+  .marketing-container .marketing-images-content img {
+    width: 260px;
+    height: 260px;
+  }
+}

@@ -1,16 +1,13 @@
 // Specific CSS for your home-page
 
 .banner {
-  position: absolute;
-  top: -9%;
   width: 100vw;
-  // height: 770px;
-  height: 100%;
+  height: 700px;
   background-size: cover;
-  background-position-y: top;
+  background-position-y: bottom;
   object-fit: cover;
   z-index: 1; /* set a high z-index to ensure the banner is on top */
-  border-bottom: solid 1px grey;
+  border-bottom: solid 1px rgba(128, 128, 128, 0.5);
 
   h1 {
     position: relative;
@@ -83,11 +80,12 @@
 }
 
 .disclaimer-banner {
-  position: absolute;
+  position: relative;
   left: 28%;
-  bottom: -1%;
+  bottom: -49%;
   opacity: 20%;
   font-size: 0.8rem;
+  max-width: fit-content;
 }
 
 
