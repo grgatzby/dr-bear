@@ -1,4 +1,5 @@
 <div class="food-name-container">
+<p class="text-gray-500 text-sm">Add these nutrient rich foods to your diet</p>
   <%# API filtering for Food name with highest nutrient value %>
   <% @name = [] %>
   <% @food_item.each do |food| %>
@@ -21,4 +22,5 @@
       <p><%= name %></p>
   <% end %>
   <%# API filtering for Food name with highest nutrient value %>
+  <p class="fs-6">Data Source: USDA FoodData Central</p>
 </div>
