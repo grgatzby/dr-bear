@@ -6,32 +6,22 @@
 </div>
 
 <div class="form-questions">
+  <% category.questions.each do |question| %>
+    <p><%= question.content %></p>
+    <% answer_labels = question.answers.map { |answer| answer.content } %>
+      <div class="form-question-box">
+        <% question.answers.each_with_index do |answer, index| %>
+          <div class="form-check">
+            <%= radio_button_tag("category#{category.id}question#{question.id}",
+                          answer.score,
+                          index == 0,
+                          class: "form-check-input quiz-radio #{category.name}-radio-button", id: "c#{category.id}q#{question.id}a#{answer.id}") %>
+            <%= label_tag("c#{category.id}q#{question.id}a#{answer.id}",
+                          answer.content,
+                          class: "form-check-label", for: "c#{category.id}q#{question.id}a#{answer.id}") %>
+          </div>
+        <% end %>
+      </div>
     <hr>
-    <% category.questions.each do |question| %>
-      <p><%= question.content %></p>
-      <% answer_labels = question.answers.map { |answer| answer.content } %>
-      <% question.answers.each_with_index do |answer, index| %>
-        <div class="form-check">
-          <%= radio_button_tag("category#{category.id}question#{question.id}",
-                        answer.score,
-                        index == 0,
-                        class: "form-check-input") %>
-          <%= label_tag("c#{category.id}q#{question.id}a#{answer.id}",
-                        answer.content,
-                        class: "form-check-label") %>
-        </div>
-        <%= hidden_field_tag(:quiz_id, @quiz.id) %>
-      <% end %>
-      <hr>
-    <% end %>
-
-    <!--
-    GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
-    -->
-    <!-- for replacing ">" with go to "next_category"
-    -->
-    <% next_category = @quiz.categories[index + 1] || nil %>
-    <% last_quiz = index == @quiz.categories.length - 1 %>
-    <% btn_label = last_quiz ? "Submit"  : "Go to #{next_category}" %>
-
+  <% end %>
 </div>

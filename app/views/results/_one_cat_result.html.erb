@@ -4,12 +4,9 @@
 
   <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
 
-  <div class="nutrients-content-container">
-
-    <div class="nutrient-image-container"
-          style="background-image: url('<%= unsplash_url %>');">
-    </div>
-
+  <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
+    <!-- <div class="nutrient-image-container" style="background-image: url('<%= unsplash_url %>');"></div> -->
+    <div class="nutrient-image-container" style="background-image: url('<%= image_path "#{nutri.name}.jpg" %>');"></div>
     <div class="nutrient-content-text">
       <div class="nutrient-name-container">
         <h2 class="nutrient-card-title">
@@ -18,8 +15,8 @@
       </div>
       <div class="nutrient-description-container">
         <p class="nutrient-card-body seventyone-chars">
-          <!-- <%= nutri.description %> -->
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+          <%= nutri.description %>
+          <%# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod %>
         </p>
         <a class="button"
            tabindex="0"
