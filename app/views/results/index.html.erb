@@ -1,14 +1,16 @@
 <div class="results-container">
   <br>
   <h5>Your quiz results</h5>
-  <h4 id="title-all-results">You may benefit from adding the following nutrients to your diet</h4>
+  <% unless @categories_nutrients.flatten.empty? %>
+    <h4 id="title-all-results">You may benefit from adding the following nutrients to your diet</h4>
+  <% end %>
   <hr>
-      <div class="advice-text-container">
-        <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISAPPEAR %>
-        <h3 id="title-nutrient-results"></h3>
-      </div>
+  <div class="advice-text-container">
+    <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISAPPEAR %>
+    <h3 id="title-nutrient-results"></h3>
+  </div>
+  
   <div class="results-content-container">
-
     <div class="total-nutrients-container">
       <% @categories.each_with_index do |category, index| %>
         <%= render "one_cat_result", category: category, nutrients: @categories_nutrients[index] %>
@@ -16,8 +18,10 @@
     </div>
     <br>
     <br>
-    <h4 class="categories-advice-title">Your responses revealed that you are experiencing difficulties with the following areas.</h4>
-    <hr>
+    <% unless @categories_nutrients.flatten.empty? %>
+      <h4 class="categories-advice-title">Your responses revealed that you are experiencing difficulties with the following areas.</h4>
+      <hr>
+    <% end %>
     <div class="total-categories-container">
       <% @categories.each_with_index do |category, index| %>
         <div class="one-category-content-container">
