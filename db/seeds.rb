@@ -29,13 +29,30 @@ User.create!(
   password: "123456"
 )
 
-4.times do |i|
+User.create!(
+  first_name: "Teddy",
+  last_name: "Bear",
+  email: "bear1@user.org",
+  password: "123456"
+)
+puts "seeded user bear1@user.org"
+
+sample_users = [
+  { first_name: "Marinos", last_name: "Veisllari" },
+  { first_name: "Ilan", last_name: "Okker" },
+  { first_name: "Ian", last_name: "Kelly" },
+  { first_name: "Guillaume", last_name: "Cazals" },
+  { first_name: "Pedro", last_name: "Vilarinho" },
+]
+
+sample_users.each do |user|
   User.create(
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    email: "bear#{i}@user.org",
+    first_name: user[:first_name],
+    last_name: user[:last_name],
+    email: "#{user[:first_name].downcase}@user.org",
     password: "123456"
   )
+  puts "seeded user #{user[:first_name].downcase}@user.org"
 end
 
 puts "-------------------"
@@ -62,7 +79,7 @@ categories.each do |category|
     description: category[:description]
   )
   id_cat.push(seeded_category.id)
-  puts "seeded #{seeded_category.name}"
+  puts "seeded category #{seeded_category.id}, #{seeded_category.name}"
 end
 
 puts "-------------------"
@@ -100,7 +117,7 @@ questions.each do |question|
     category_id: question[:category_id]
   )
   id_q.push(seeded_question.id)
-  puts "seeded question #{seeded_question.id}, #{seeded_question.content} [--->#{seeded_question.category.name}]"
+  puts "seeded question #{seeded_question.id}, [ #{seeded_question.category.name}--->] #{seeded_question.content}"
 end
 
 puts "-------------------"
@@ -156,7 +173,7 @@ answers.each do |answer|
     score: answer[:score],
     question_id: answer[:question_id]
   )
-  puts "seeded answer #{seeded_answer.id}, #{seeded_answer.content} [--->#{seeded_answer.question.content}]"
+  puts "seeded answer #{seeded_answer.id}, [ #{seeded_answer.question.category.name} ] [ #{seeded_answer.question.content}--->] #{seeded_answer.content}"
 end
 
 puts "-------------------"
