@@ -1,8 +1,7 @@
 <div class="results-container">
   <br>
-  <h2>Your Results</h2>
-  <br>
-  <h4 id="title-all-results">You may benefit from the following nutrients</h4>
+  <h5>Your quiz results</h5>
+  <h4 id="title-all-results">You may benefit from adding the following nutrients to your diet</h4>
   <hr>
       <div class="advice-text-container">
         <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISAPPEAR %>
@@ -17,21 +16,29 @@
     </div>
     <br>
     <br>
-    <br>
-    <h4 class="categories-advice-title">You could work on the following categories</h4>
+    <h4 class="categories-advice-title">Your responses revealed that you are experiencing difficulties with the following areas.</h4>
     <hr>
     <div class="total-categories-container">
       <% @categories.each_with_index do |category, index| %>
-        <div class="category-name-container">
-          <p>
-            <%= category.name %>
-          </p>
+        <div class="one-category-content-container">
+          <!-- <% unsplash_url_2 = "https://source.unsplash.com/200x200/?#{category.name}-drawing" %>
+          <div class="image-categories-container-round">
+            <img src="<%= unsplash_url_2 %>" alt="Category image">
+          </div> -->
+          <div class="category-content-alltext">
+            <div class="category-name-container">
+              <p class="category-title-p">
+                <%= image_tag "dr-bear-cover.png" %> </i> <%= category.name %>
+              </p>
+            </div>
+            <div class="category-description-container">
+              <p>
+                <%= category.description %>
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="category-description-container">
-          <p>
-            <%= category.description %>
-          </p>
-        </div>
+        <hr>
       <% end %>
     </div>
 

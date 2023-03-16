@@ -1,9 +1,9 @@
 // BACKGROUND
 
-#title-all-results,
+
 #title-nutrient-results {
   font-family: 'Montserrat', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
 }
 
 .results-container {
@@ -13,16 +13,34 @@
   justify-content: top;
   margin-top: 55px;
   padding: 3% 15% 5% 15%;
-  //background-color: rgba(217, 239, 255, 1);
-  background: rgb(236,242,255);
-  background: radial-gradient(circle, rgba(236,242,255,0.6) 60%, rgba(210,199,255,0.6) 97%);
+  background-color: #FFF5E4;
+  // background: rgb(236,242,255);
+  // background: radial-gradient(circle, rgba(236,242,255,0.6) 60%, rgba(210,199,255,0.6) 97%);
   font-family: 'Montserrat', sans-serif;
   min-height: calc(100vh - 55px);
 }
 
-.results-container h4 {
-  font-size: 1.7rem;
-  color: grey;
+.results-container {
+  h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0px;
+    opacity: 0.9;
+    color: grey;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  hr {
+    margin-top: 7px;
+    margin-bottom: 15px;
+  }
+
+  h5 {
+    font-size: 1.6rem;
+    font-weight: 600;
+    opacity: 0.8;
+    color: #342e6f;
+  }
 }
 
 // GRID
@@ -53,6 +71,7 @@
   border-radius: 20px;
 
   transition: transform 500ms ease;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
 }
 
 .categories-advice-title {
@@ -61,6 +80,7 @@
 
 .nutrients-content-container:hover, .nutrients-content-container:focus-within {
   transform: scale(1.02);
+  box-shadow: none;
 }
 
 
@@ -180,121 +200,47 @@
   color: whitesmoke;
 }
 
-
-
-
-
-
-
-
-
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////// OLD CODE HERE ///////////////////////////////////////////////////////
+//////////////////////////////////////////// CATEGORIES ////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+.one-category-content-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+}
 
-// .results-content-container {
-//   border-radius: 20px;
-//   background-color: whitesmoke;
-//   background-color: rgba(255, 255, 255, 0.3);
-//   padding: 5% 5% 5% 5%;
-// }
+.category-title-p {
+  font-size: 1.3rem;
+  font-weight: 600;
+  opacity: 0.8;
+  color: #342e6f;
 
-// .category-container{
-//   display: flex;
-//   box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
-//   border-radius: 20px;
-//   background-color: rgba(255, 255, 255, 0.5);
+  img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.9;
+  }
+}
 
-//   .img-category-container {
-//     border-right: 1px solid white;
+.category-description-container {
+  color: #342e6f;
 
-//     img {
-//       height: 250px;
-//       width: 250px;
-//       min-width: 100%;
-//       min-height: 100%;
-//       margin: auto;
-//       display: block;
-//       object-fit: cover;
-//       border-bottom-left-radius: 20px;
-//       border-top-left-radius: 20px;
-//     }
-//   }
-
-//   .category-content-text {
-//     margin-top: 2%;
-//     padding-left: 2%;
-//     padding-right: 2%;
-//     display: flex column;
-//     justify-content: space-between;
-//     font-size: auto;
-
-//     .category-name-container {
-//       font-size: 1.3rem;
-//       font-weight: 500;
-//     }
-//   }
-// }
-
-// .nutrients-container {
-//   padding-top: 4%;
-// }
+  p {
+    font-size: 1.15rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
+}
 
 
-// .nutrients-content-container {
-//   margin-bottom: 2%;
-//   display: flex;
-//   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-//   border-radius: 20px;
-//   background-color: rgba(255, 255, 255, 0.7);
-//   cursor: pointer;
 
-//   img {
-//     height: 170px;
-//     width: 170px;
-//     min-width: 100%;
-//     min-height: 100%;
-//     margin: auto;
-//     display: block;
-//     object-fit: cover;
-//     border-bottom-left-radius: 20px;
-//     border-top-left-radius: 20px;
-//   }
 
-//   .nutrient-content-text {
-//     margin-top: 2%;
-//     padding-left: 2%;
-//     padding-right: 2%;
-//     display: flex column;
-//     justify-content: space-between;
-//     font-size: auto;
 
-//     .nutrient-name-container {
-//       font-size: 1rem;
-//       font-weight: 500;
-//     }
-//   }
-// }
 
-// .advice-text-container {
-
-//   padding-bottom: 10px;
-
-//   h3 {
-//     color: grey;
-//     font-size: 1.3rem;
-//     padding-bottom: 1px;
-//     padding-left: 1.7%;
-//     border-bottom: 0.1px solid grey;
-//   }
-// }
-
-// .nutrients-content-container:hover {
-//   box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
-// }
 
 
 // /////////////////////////TODO NOT OPTIMAL FOR MOBILE///////////////////////////////
