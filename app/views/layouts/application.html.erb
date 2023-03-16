@@ -32,9 +32,11 @@
 
   <body>
     <% if params[:controller] == "pages"  %>
-      <%= render "shared/navbar" %>
-    <% elsif params[:controller] == "about" %>
-      <%= render "shared/navbar2" %>
+      <% if params[:action].in?(["about", "learn"]) %>
+        <%= render "shared/navbar2" %>
+      <% else %>
+        <%= render "shared/navbar" %>
+      <% end %>
     <% else  %>
       <%= render "shared/navbar2" %>
     <% end %>
