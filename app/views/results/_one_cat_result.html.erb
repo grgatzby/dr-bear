@@ -4,7 +4,7 @@
 
   <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
 
-  <div class="nutrients-content-container" onclick="window.open('https://en.wikipedia.org/wiki/<%= nutri.name %>');">
+  <div class="nutrients-content-container" >
     <!-- <div class="nutrient-image-container" style="background-image: url('<%= unsplash_url %>');"></div> -->
     <div class="nutrient-image-container" style="background-image: url('<%= image_path "#{nutri.name}.jpg" %>');"></div>
     <div class="nutrient-content-text">
@@ -18,8 +18,23 @@
           <%= nutri.description %>
           <%# Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod %>
         </p>
-        <a href="#" class="button">Learn More</a>
+        <a class="button"
+           tabindex="0"
+           role="button"
+           data-controller="popover"
+           data-bs-toggle="popover"
+           data-bs-trigger="focus"
+           data-bs-placement="top"
+           title="Nutrient rich foods for your diet"
+           data-bs-content="<%= render "food_result_recommendation", nutri: nutri %>"
+           data-bs-html=true>
+           Learn More
+           </a>
+
       </div>
     </div>
+
   </div>
+
+
 <% end %>

@@ -22,6 +22,34 @@ class ResultsController < ApplicationController
     search_results = RestClient.get(search_url, headers={})
     @results = JSON.parse(search_results)
     @food_item = @results["foods"]
+
+    # # API filtering for Food name with highest nutrient value
+    # nutri = Nutrient.find(nutrient)
+    # @name = []
+    # @food_item.each do |food|
+    #   food["foodNutrients"].each do |nutrient|
+    #     if nutrient["nutrientNumber"] == nutri.nutri_code
+    #       @name.push([food["description"],nutrient["value"]])
+    #     end
+    #   end
+    # end
+
+    # # sorting for Food with highest nutrient value
+    # @sorted_names = @name.sort_by {|obj| obj [1]}
+    # @result_name = @sorted_names.last(3).map {|obj| obj [0]}
+    # @result_name.reverse!
+
+    # # display name of food per nutrient
+    # @result_name
+    #   @result_name.each do |name|
+    #     name = name.split(", ")
+    #     name.delete_at(-1)
+    #     @final_name = name.join(", ")
+    # end
+
+
+
+
     # end of FoodData Central API call
 
     @quiz = Quiz.last

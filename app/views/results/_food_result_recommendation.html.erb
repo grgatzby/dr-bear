@@ -1,4 +1,4 @@
-<div class="food-name-container">
+
   <%# API filtering for Food name with highest nutrient value %>
   <% @name = [] %>
   <% @food_item.each do |food| %>
@@ -10,15 +10,15 @@
   <% end %>
   <%# sorting for Food with highest nutrient value %>
   <% @sorted_names = @name.sort_by {|obj| obj [1]} %>
-  <% @result_name = @sorted_names.last(3).map {|obj| obj [0]} %>
+  <% @result_name = @sorted_names.last(5).map {|obj| obj [0]} %>
   <% @result_name.reverse! %>
   <%# display name of food per nutrient %>
   <% @result_name %>
-    <% @result_name.each do |name| %>
-      <% name = name.split(", ") %>
-      <% name.delete_at(-1) %>
-      <% name = name.join(", ") %>
-      <p><%= name %></p>
+
+  <% @result_name.map do |name| %>
+
+    > <%= name.gsub(", raw","" ) %>
+
+    <br/>
   <% end %>
   <%# API filtering for Food name with highest nutrient value %>
-</div>
