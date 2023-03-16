@@ -48,9 +48,10 @@ categories = [
     Sleep apnea, in which you experience abnormal patterns in breathing while you are asleep. There are several types of sleep apnea. Restless legs syndrome (RLS), a type of sleep movement disorder. Restless legs syndrome, also called Willis-Ekbom disease, causes an uncomfortable sensation and an urge to move the legs while you try to fall asleep. Narcolepsy, a condition characterized by extreme sleepiness during the day and falling asleep suddenly during the day." },
 
   { name: "Stress", description: "Stress symptoms can affect your body, your thoughts and feelings, and your behavior. Being able to recognize common stress symptoms can help you manage them. Stress that's left unchecked can contribute to many health problems, such as high blood pressure, heart disease, obesity and diabetes." },
-  { name: "Energy", description: "Something about Energy" },
-  { name: "Heart", description: "Heart disease description" },
-  { name: "Cholosterol", description: "Cholestrol issues" }
+  { name: "Energy", description: "Energy is a crucial aspect of overall health and well-being. It refers to the physical and mental ability to engage in activities and perform tasks throughout the day. The presence or absence of energy can have significant impacts on an individual's physical health, mental health, and daily functioning." },
+  { name: "Heart", description: "The heart is a vital organ that is responsible for circulating blood throughout the body. It is essential for maintaining overall health and wellness. However, various factors can impact heart health, including lifestyle choices, genetics, and underlying health conditions.  Preventative measures can help promote heart health, such as maintaining a healthy diet, engaging in regular physical activity, avoiding smoking, and managing stress levels. Regular check-ups with a healthcare provider can also help monitor heart health and identify any potential issues before they become more serious." },
+  { name: "Cholesterol", description: "Cholesterol is a type of fat that is produced by the liver and is essential for various bodily functions. However, when cholesterol levels in the blood become too high, it can contribute to the development of various health conditions, including heart disease.
+    High cholesterol levels can result from various factors, including genetics, diet, and lifestyle choices. A diet high in saturated and trans fats can contribute to high cholesterol levels, as can a lack of physical activity and smoking." }
 
 ]
 
@@ -78,17 +79,17 @@ questions = [
   { category_id: id_cat[1], content: "Do you get agitated easily over things outside your control?" },
   { category_id: id_cat[1], content: "Do you find it difficult to relax?" },
 
-  { category_id: id_cat[2], content: "Energy Q1?" },
-  { category_id: id_cat[2], content: "Energy Q2?" },
-  { category_id: id_cat[2], content: "Energy Q3?" },
+  { category_id: id_cat[2], content: "Is your overall energy level throughout the day consistently high?" },
+  { category_id: id_cat[2], content: "Do you engage in physical activity or exercise?" },
+  { category_id: id_cat[2], content: "Do you have a balanced diet and eat meals regularly throughout the day?" },
 
-  { category_id: id_cat[3], content: "heart Q1?" },
-  { category_id: id_cat[3], content: "Heart Q2?" },
-  { category_id: id_cat[3], content: "Heart Q3?" },
+  { category_id: id_cat[3], content: "Have you ever experienced chest pain or discomfort?" },
+  { category_id: id_cat[3], content: "Do you smoke or use tobacco products?" },
+  { category_id: id_cat[3], content: "Do you have a family history of heart disease?" },
 
-  { category_id: id_cat[4], content: "Cholosterol Q1 ?" },
-  { category_id: id_cat[4], content: "Cholosterol Q2 ?" },
-  { category_id: id_cat[4], content: "Cholosterol Q3 ?" },
+  { category_id: id_cat[4], content: "Have you ever had your cholesterol levels checked?" },
+  { category_id: id_cat[4], content: "Do you have a family history of high cholesterol?" },
+  { category_id: id_cat[4], content: "What is your typical diet like? Do you consume a lot of high-fat or high-cholesterol foods?" },
 
 ]
 
@@ -162,63 +163,63 @@ puts "-------------------"
 # implement nutrients name and description
 nutrients = [
   { name: "Vitamin A",
-    description: "Vitamin A description",
+    description: "Vitamin A helps in vision, bone growth, reproduction, growth of epithelium",
     nutri_code: "320" },
 
   { name: "Vitamin B1 (Thiamin)",
-    description: "Vitamin B1 description",
+    description: "Vitamin B1 helps some enzymes work properly, helps break down sugars in the diet",
     nutri_code: "404" },
 
   { name: "Vitamin B2 (Riboflavin)",
-    description: "Vitamin B2 description",
+    description: "Riboflavin works to reduce oxidative stress and inflammation of nerves",
     nutri_code: "405" },
 
   { name: "Vitamin B3 (Niacin)",
-    description: "Vitamin B3 description",
+    description: "Vitamin B3 helps keep your nervous system, digestive system and skin healthy",
     nutri_code: "406" },
 
   { name: "Vitamin B6",
-    description: "Vitamin B6 description",
+    description: "Is crucial for brain and nervous system development and immune health.",
     nutri_code: "415" },
 
   { name: "Vitamin B12",
-    description: "Vitamin B12 description",
+    description: "Important for red blood cells, cell metabolism, nerves, and DNA production.",
     nutri_code: "418" },
 
   { name: "Vitamin C",
-    description: "Vitamin C description",
+    description: "Functions as an antioxidant by protecting cells from free radicals.",
     nutri_code: "401" },
 
   { name: "Calcium",
-    description: "Calcium description",
+    description: "Calcium is vital for strong bones, heart, muscle, and nerve function.",
     nutri_code: "301" },
 
   { name: "Vitamin D",
-    description: "Vitamin D description",
+    description: "Helps absorb and retain calcium and phosphorus for bone building.",
     nutri_code: "328" },
 
   { name: "Vitamin E",
-    description: "Vitamin E description",
+    description: "Promotes healthy skin and eyes, and strengthens immune system defense.",
     nutri_code: "323" },
 
   { name: "Folate",
-    description: "Folate description",
+    description: "Important for red blood cell formation and healthy cell growth and function",
     nutri_code: "417" },
 
   { name: "Vitamin K",
-    description: "vitamin K description",
+    description: "Essential for blood clotting and protein production for bone building.",
     nutri_code: "430" },
 
   { name: "Magnesium",
-    description: "Magnesium description",
+    description: "Essential for muscle, nerve, blood function, protein, and DNA synthesis.",
     nutri_code: "304" },
 
   { name: "Potassium",
-    description: "Potassium description",
+    description: "Regulates fluid balance and helps maintain normal fluid levels inside cells.",
     nutri_code: "306" },
 
   { name: "Sodium",
-    description: "Sodium description",
+    description: "Enables nerve impulses, muscle contraction, fluid balance, and mineral regulation.",
     nutri_code: "307" }
 ]
 id_nutr = []
