@@ -10,5 +10,5 @@ application.register("form", FormController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
-import Popover from 'stimulus-popover'
-application.register('popover', Popover)
+import PopoverController from "./popover_controller"
+application.register("popover", PopoverController)

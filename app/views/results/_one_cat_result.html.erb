@@ -4,40 +4,30 @@
 
   <% unsplash_url = "https://source.unsplash.com/200x200/?#{nutri.name}-supplement" %>
 
-  <div class="nutrients-content-container" data-controller="popover">
+  <div class="nutrients-content-container">
 
-    <div class="nutrient-image-container" style="background-image: url('<%= unsplash_url %>');">
+    <div class="nutrient-image-container"
+          style="background-image: url('<%= unsplash_url %>');">
     </div>
 
-    <div class="nutrient-content-text" >
-
-        <div class="nutrient-name-container">
-          <h2 class="nutrient-card-title">
-            <%= nutri.name %>
-          </h2>
-        </div>
-
-        <div class="nutrient-description-container">
-          <p class="nutrient-card-body seventyone-chars">
-            <!-- <%= nutri.description %> -->
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          </p>
-          <a href="https://en.wikipedia.org/wiki/<%= nutri.name %>" target= "_blank" class="button" data-action="mouseenter->popover#show mouseleave->popover#hide">Learn More</a>
-
-
-          <template data-popover-target="content">
-            <div data-popover-target="card" >
-              <div class="px-6 py-4 flex">
-                <div class="ml-4">
-                  <%= render "food_result_recommendation", nutri: nutri %>
-                </div>
-              </div>
-            </div>
-          </template>
-
+    <div class="nutrient-content-text">
+      <div class="nutrient-name-container">
+        <h2 class="nutrient-card-title">
+          <%= nutri.name %>
+        </h2>
+      </div>
+      <div class="nutrient-description-container">
+        <p class="nutrient-card-body seventyone-chars">
+          <!-- <%= nutri.description %> -->
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        </p>
+        <button class="button" data-controller="popover" data-bs-toggle="popover"
+                data-bs-trigger="click" data-bs-placement="right" title="Add these nutrient rich foods to your diet"
+                data-bs-content="<%= render "food_result_recommendation", nutri: nutri %>">
+                Learn More
+                </button>
 
       </div>
-
     </div>
 
   </div>
