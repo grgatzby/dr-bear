@@ -72,25 +72,25 @@ puts "-------------------"
 # input questions content for each category
 questions = [
   # Sleep
-  { category_id: id_cat[0], question_id: id_q[0], content: "Do you sleep through the night?" },
-  { category_id: id_cat[0], question_id: id_q[1], content: "Do you have trouble falling asleep?" },
-  { category_id: id_cat[0], question_id: id_q[2], content: "Do you feel well rested in the morning?" },
+  { category_id: id_cat[0], content: "Do you sleep through the night?" },
+  { category_id: id_cat[0], content: "Do you have trouble falling asleep?" },
+  { category_id: id_cat[0], content: "Do you feel well rested in the morning?" },
   # Stress
-  { category_id: id_cat[1], question_id: id_q[3], content: "Do you feel stressed on a daily basis?" },
-  { category_id: id_cat[1], question_id: id_q[4], content: "Do you get agitated easily over things outside your control?" },
-  { category_id: id_cat[1], question_id: id_q[5], content: "Do you find it difficult to relax?" },
+  { category_id: id_cat[1], content: "Do you feel stressed on a daily basis?" },
+  { category_id: id_cat[1], content: "Do you get agitated easily over things outside your control?" },
+  { category_id: id_cat[1], content: "Do you find it difficult to relax?" },
   # Energy
-  { category_id: id_cat[2], question_id: id_q[6], content: "Is your overall energy level throughout the day consistently high?" },
-  { category_id: id_cat[2], question_id: id_q[7], content: "Do you engage in physical activity or exercise?" },
-  { category_id: id_cat[2], question_id: id_q[8], content: "Do you have a balanced diet and eat meals regularly throughout the day?" },
+  { category_id: id_cat[2], content: "Is your overall energy level throughout the day consistently high?" },
+  { category_id: id_cat[2], content: "Do you engage in physical activity or exercise?" },
+  { category_id: id_cat[2], content: "Do you have a balanced diet and eat meals regularly throughout the day?" },
   # Heart
-  { category_id: id_cat[3], question_id: id_q[9], content: "Have you ever experienced chest pain or discomfort?" },
-  { category_id: id_cat[3], question_id: id_q[10], content: "Do you smoke or use tobacco products?" },
-  { category_id: id_cat[3], question_id: id_q[11], content: "Do you have a family history of heart disease?" },
+  { category_id: id_cat[3], content: "Have you ever experienced chest pain or discomfort?" },
+  { category_id: id_cat[3], content: "Do you smoke or use tobacco products?" },
+  { category_id: id_cat[3], content: "Do you have a family history of heart disease?" },
   # Cholesterol
-  { category_id: id_cat[4], question_id: id_q[12], content: "Have you ever had your cholesterol levels checked?" },
-  { category_id: id_cat[4], question_id: id_q[13], content: "Do you have a family history of high cholesterol?" },
-  { category_id: id_cat[4], question_id: id_q[14], content: "What is your typical diet like? Do you consume a lot of high-fat or high-cholesterol foods?" },
+  { category_id: id_cat[4], content: "Have you ever had your cholesterol levels checked?" },
+  { category_id: id_cat[4], content: "Do you have a family history of high cholesterol?" },
+  { category_id: id_cat[4], content: "What is your typical diet like? Do you consume a lot of high-fat or high-cholesterol foods?" },
 ]
 
 id_q = []
@@ -100,7 +100,7 @@ questions.each do |question|
     category_id: question[:category_id]
   )
   id_q.push(seeded_question.id)
-  puts "seeded question #{seeded_question.id}, #{seeded_question.content}"
+  puts "seeded question #{seeded_question.id}, #{seeded_question.content} [--->#{seeded_question.category.name}]"
 end
 
 puts "-------------------"
@@ -156,7 +156,7 @@ answers.each do |answer|
     score: answer[:score],
     question_id: answer[:question_id]
   )
-  puts "seeded answer #{seeded_answer.id}, #{seeded_answer.content}"
+  puts "seeded answer #{seeded_answer.id}, #{seeded_answer.content} [--->#{seeded_answer.question.content}]"
 end
 
 puts "-------------------"
@@ -234,7 +234,7 @@ nutrients.each do |nutrient|
     nutri_code: nutrient[:nutri_code]
   )
   id_nutr.push(seeded_nutrient.id)
-  puts "seeded nutrient #{seeded_nutrient.id}, #{seeded_nutrient.content}"
+  puts "seeded nutrient #{seeded_nutrient.id}, #{seeded_nutrient.name}"
 end
 
 puts "-------------------"
