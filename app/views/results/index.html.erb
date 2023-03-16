@@ -1,7 +1,9 @@
 <div class="results-container">
   <br>
   <h5>Your quiz results</h5>
-  <% unless @categories_nutrients.flatten.empty? %>
+  <% if @categories_nutrients.flatten.empty? %>
+    <h4 id="title-all-results">Based on your results, you are in good health, and no extra nutrient are recommended.</h4>
+  <% else %>
     <h4 id="title-all-results">You may benefit from adding the following nutrients to your diet</h4>
   <% end %>
   <hr>
@@ -9,7 +11,7 @@
     <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISAPPEAR %>
     <h3 id="title-nutrient-results"></h3>
   </div>
-  
+
   <div class="results-content-container">
     <div class="total-nutrients-container">
       <% @categories.each_with_index do |category, index| %>
