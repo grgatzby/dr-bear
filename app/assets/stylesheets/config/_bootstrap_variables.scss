@@ -25,11 +25,20 @@ $border-radius-sm: 2px;
 
 
 // Popover Styling
-$popover-width:          50px;
-$popover-bg:             $light-gray;
+$popover-width:          500px;
+$popover-min-width:      250px;
+$popover-bg:             #FFF5E4;
+
 $popover-font:           $body-font;
-$popover-border-width:   2px;
+$popover-body-color:     $gray;
+
+
+$popover-header-color:    #342e6f;
+$popover-header-bg:      $light-gray($popover-bg, 6%);
+
+
 $popover-border-color:   rgba($gray, .2);
+$popover-border-width:   2px;
 $popover-border-radius:  20px;
 
 
