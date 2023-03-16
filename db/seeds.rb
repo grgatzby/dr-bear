@@ -6,7 +6,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 require 'faker'
-if Rails.env.development?
+
+# if Rails.env.development?
   puts "-------------------"
   puts "resetting Database"
   puts "-------------------"
@@ -15,7 +16,7 @@ if Rails.env.development?
   Category.destroy_all
   Result.destroy_all
   User.destroy_all
-end
+# end
 
 puts "-------------------"
 puts "seeding Users"
@@ -28,7 +29,7 @@ User.create!(
   password: "123456"
 )
 
-10.times do |i|
+5.times do |i|
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
