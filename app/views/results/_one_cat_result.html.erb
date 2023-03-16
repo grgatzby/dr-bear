@@ -21,11 +21,17 @@
           <!-- <%= nutri.description %> -->
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         </p>
-        <button class="button" data-controller="popover" data-bs-toggle="popover"
-                data-bs-trigger="click" data-bs-placement="right" title="Add these nutrient rich foods to your diet"
-                data-bs-content="<%= render "food_result_recommendation", nutri: nutri %>">
-                Learn More
-                </button>
+        <a class="button"
+           tabindex="0"
+           role="button"
+           data-controller="popover"
+           data-bs-toggle="popover"
+           data-bs-trigger="focus"
+           data-bs-placement="top"
+           title="Add these nutrient rich foods to your diet"
+           data-bs-content="<%= render "food_result_recommendation", nutri: nutri %>">
+           Learn More
+           </a>
 
       </div>
     </div>
