@@ -1,5 +1,5 @@
 class ResultsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show, :create ]
+  skip_before_action :authenticate_user!, only: [:index, :show, :create]
 
   require "json"
   require "rest-client"
