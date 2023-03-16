@@ -1,5 +1,4 @@
 
-
   <%# API filtering for Food name with highest nutrient value %>
   <% @name = [] %>
   <% @food_item.each do |food| %>
@@ -15,11 +14,11 @@
   <% @result_name.reverse! %>
   <%# display name of food per nutrient %>
   <% @result_name %>
-    <% @result_name.each do |name| %>
-      <% name = name.split(", ") %>
-      <% name.delete_at(-1) %>
-      <% final_name = name.join(", ") %>
-      <%= final_name %>
+
+  <% @result_name.map do |name| %>
+
+    <%= name %>
+
+    <br/>
   <% end %>
   <%# API filtering for Food name with highest nutrient value %>
-  <%# <p class="fs-6">Data Source: USDA FoodData Central</p> %>

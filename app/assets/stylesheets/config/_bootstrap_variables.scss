@@ -25,7 +25,13 @@ $border-radius-sm: 2px;
 
 
 // Popover Styling
-$popover-bg:   $red;
+$popover-width:          50px;
+$popover-bg:             $light-gray;
+$popover-font:           $body-font;
+$popover-border-width:   2px;
+$popover-border-color:   rgba($gray, .2);
+$popover-border-radius:  20px;
+
 
 
 // Override other variables below!
