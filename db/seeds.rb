@@ -29,7 +29,7 @@ User.create!(
   password: "123456"
 )
 
-5.times do |i|
+4.times do |i|
   User.create(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
@@ -53,7 +53,6 @@ categories = [
   { name: "Heart", description: "The heart is a vital organ that is responsible for circulating blood throughout the body. It is essential for maintaining overall health and wellness. However, various factors can impact heart health, including lifestyle choices, genetics, and underlying health conditions.  Preventative measures can help promote heart health, such as maintaining a healthy diet, engaging in regular physical activity, avoiding smoking, and managing stress levels. Regular check-ups with a healthcare provider can also help monitor heart health and identify any potential issues before they become more serious." },
   { name: "Cholesterol", description: "Cholesterol is a type of fat that is produced by the liver and is essential for various bodily functions. However, when cholesterol levels in the blood become too high, it can contribute to the development of various health conditions, including heart disease.
     High cholesterol levels can result from various factors, including genetics, diet, and lifestyle choices. A diet high in saturated and trans fats can contribute to high cholesterol levels, as can a lack of physical activity and smoking." }
-
 ]
 
 id_cat = []
@@ -72,26 +71,26 @@ puts "-------------------"
 
 # input questions content for each category
 questions = [
+  # Sleep
   { category_id: id_cat[0], content: "Do you sleep through the night?" },
   { category_id: id_cat[0], content: "Do you have trouble falling asleep?" },
   { category_id: id_cat[0], content: "Do you feel well rested in the morning?" },
-
+  # Stress
   { category_id: id_cat[1], content: "Do you feel stressed on a daily basis?" },
   { category_id: id_cat[1], content: "Do you get agitated easily over things outside your control?" },
   { category_id: id_cat[1], content: "Do you find it difficult to relax?" },
-
+  # Energy
   { category_id: id_cat[2], content: "Is your overall energy level throughout the day consistently high?" },
   { category_id: id_cat[2], content: "Do you engage in physical activity or exercise?" },
   { category_id: id_cat[2], content: "Do you have a balanced diet and eat meals regularly throughout the day?" },
-
+  # Heart
   { category_id: id_cat[3], content: "Have you ever experienced chest pain or discomfort?" },
   { category_id: id_cat[3], content: "Do you smoke or use tobacco products?" },
   { category_id: id_cat[3], content: "Do you have a family history of heart disease?" },
-
+  # Cholesterol
   { category_id: id_cat[4], content: "Have you ever had your cholesterol levels checked?" },
   { category_id: id_cat[4], content: "Do you have a family history of high cholesterol?" },
   { category_id: id_cat[4], content: "What is your typical diet like? Do you consume a lot of high-fat or high-cholesterol foods?" },
-
 ]
 
 id_q = []
@@ -101,7 +100,7 @@ questions.each do |question|
     category_id: question[:category_id]
   )
   id_q.push(seeded_question.id)
-  puts "seeded #{seeded_question.content}"
+  puts "seeded question #{seeded_question.id}, #{seeded_question.content} [--->#{seeded_question.category.name}]"
 end
 
 puts "-------------------"
@@ -110,51 +109,54 @@ puts "-------------------"
 
 # input answers content and score for each category/question
 answers = [
-  { category_id: id_cat[0], question_id: id_q[0], content: "Yes", score: 1 },
+  # Sleep
+  { category_id: id_cat[0], question_id: id_q[0], content: "Yes", score: 2 }, #
   { category_id: id_cat[0], question_id: id_q[0], content: "No", score: 0 },
-  { category_id: id_cat[0], question_id: id_q[1], content: "Yes", score: 1 },
+  { category_id: id_cat[0], question_id: id_q[0], content: "Sometimes", score: 1 },
+  { category_id: id_cat[0], question_id: id_q[1], content: "Yes", score: 1 }, #
   { category_id: id_cat[0], question_id: id_q[1], content: "No", score: 0 },
-  { category_id: id_cat[0], question_id: id_q[2], content: "Yes", score: 1 },
+  { category_id: id_cat[0], question_id: id_q[2], content: "Yes", score: 1 }, #
   { category_id: id_cat[0], question_id: id_q[2], content: "No", score: 0 },
-
-  { category_id: id_cat[1], question_id: id_q[3], content: "Yes", score: 2 },
+  # Stress
+  { category_id: id_cat[1], question_id: id_q[3], content: "Yes", score: 1 }, #
   { category_id: id_cat[1], question_id: id_q[3], content: "No", score: 0 },
-  { category_id: id_cat[1], question_id: id_q[3], content: "Maybe", score: 1 },
-  { category_id: id_cat[1], question_id: id_q[4], content: "Yes", score: 1 },
+  { category_id: id_cat[1], question_id: id_q[4], content: "Yes", score: 2 }, #
   { category_id: id_cat[1], question_id: id_q[4], content: "No", score: 0 },
-  { category_id: id_cat[1], question_id: id_q[5], content: "Yes", score: 1 },
+  { category_id: id_cat[1], question_id: id_q[4], content: "Sometimes", score: 1 },
+  { category_id: id_cat[1], question_id: id_q[5], content: "Yes", score: 1 }, #
   { category_id: id_cat[1], question_id: id_q[5], content: "No", score: 0 },
-
-  { category_id: id_cat[2], question_id: id_q[6], content: "Yes", score: 1 },
+  # Energy
+  { category_id: id_cat[2], question_id: id_q[6], content: "Yes", score: 1 }, #
   { category_id: id_cat[2], question_id: id_q[6], content: "No", score: 0 },
-  { category_id: id_cat[2], question_id: id_q[7], content: "Yes", score: 1 },
+  { category_id: id_cat[2], question_id: id_q[7], content: "Yes", score: 1 }, #
   { category_id: id_cat[2], question_id: id_q[7], content: "No", score: 0 },
-  { category_id: id_cat[2], question_id: id_q[8], content: "Yes", score: 1 },
+  { category_id: id_cat[2], question_id: id_q[8], content: "Yes", score: 2 }, #
   { category_id: id_cat[2], question_id: id_q[8], content: "No", score: 0 },
-
-  { category_id: id_cat[3], question_id: id_q[9], content: "Yes", score: 1 },
+  { category_id: id_cat[2], question_id: id_q[8], content: "Sometimes", score: 1 },
+  # Heart
+  { category_id: id_cat[3], question_id: id_q[9], content: "Yes", score: 1 }, #
   { category_id: id_cat[3], question_id: id_q[9], content: "No", score: 0 },
-  { category_id: id_cat[3], question_id: id_q[10], content: "Yes", score: 1 },
+  { category_id: id_cat[3], question_id: id_q[10], content: "Yes", score: 1 }, #
   { category_id: id_cat[3], question_id: id_q[10], content: "No", score: 0 },
-  { category_id: id_cat[3], question_id: id_q[11], content: "Yes", score: 1 },
+  { category_id: id_cat[3], question_id: id_q[11], content: "Yes", score: 1 }, #
   { category_id: id_cat[3], question_id: id_q[11], content: "No", score: 0 },
-
+  # Cholesterol
   { category_id: id_cat[4], question_id: id_q[12], content: "Yes", score: 1 },
   { category_id: id_cat[4], question_id: id_q[12], content: "No", score: 0 },
   { category_id: id_cat[4], question_id: id_q[13], content: "Yes", score: 1 },
   { category_id: id_cat[4], question_id: id_q[13], content: "No", score: 0 },
-  { category_id: id_cat[4], question_id: id_q[14], content: "Yes", score: 1 },
-  { category_id: id_cat[4], question_id: id_q[14], content: "No", score: 0 }
-
+  { category_id: id_cat[4], question_id: id_q[14], content: "Yes", score: 2 },
+  { category_id: id_cat[4], question_id: id_q[14], content: "No", score: 0 },
+  { category_id: id_cat[2], question_id: id_q[14], content: "Sometimes", score: 1 }
 ]
 
 answers.each do |answer|
-  answer = Answer.create!(
+  seeded_answer = Answer.create!(
     content: answer[:content],
     score: answer[:score],
     question_id: answer[:question_id]
   )
-  puts "answer #{answer.id}, #{answer.content}"
+  puts "seeded answer #{seeded_answer.id}, #{seeded_answer.content} [--->#{seeded_answer.question.content}]"
 end
 
 puts "-------------------"
@@ -171,8 +173,8 @@ nutrients = [
     description: "Vitamin B1 helps some enzymes work properly, helps break down sugars in the diet",
     nutri_code: "404" },
 
-  { name: "Vitamin B2 (Riboflavin)",
-    description: "Riboflavin works to reduce oxidative stress and inflammation of nerves",
+    { name: "Vitamin B2 (Riboflavin)",
+      description: "Riboflavin works to reduce oxidative stress and inflammation of nerves",
     nutri_code: "405" },
 
   { name: "Vitamin B3 (Niacin)",
@@ -232,41 +234,43 @@ nutrients.each do |nutrient|
     nutri_code: nutrient[:nutri_code]
   )
   id_nutr.push(seeded_nutrient.id)
+  puts "seeded nutrient #{seeded_nutrient.id}, #{seeded_nutrient.name}"
 end
 
 puts "-------------------"
 puts "seeding Category_Nutrients"
 puts "-------------------"
 # input category_nutrients min_score and max_score
-# cat 0 = sleep & cat 1 = stress
 # nutri 0 - 4 for sleep ~ cat 0
 category_nutrients = [
-  { category_id: id_cat[0], nutrient_id: id_nutr[0], min_score: 1, max_score: 3 },
-  { category_id: id_cat[0], nutrient_id: id_nutr[1], min_score: 2, max_score: 3 },
-  { category_id: id_cat[0], nutrient_id: id_nutr[2], min_score: 3, max_score: 3 },
-
-  { category_id: id_cat[1], nutrient_id: id_nutr[3], min_score: 1, max_score: 5 },
-  { category_id: id_cat[1], nutrient_id: id_nutr[4], min_score: 3, max_score: 5 },
-  { category_id: id_cat[1], nutrient_id: id_nutr[5], min_score: 5, max_score: 5 },
-
-  { category_id: id_cat[2], nutrient_id: id_nutr[6], min_score: 1, max_score: 3 },
-  { category_id: id_cat[2], nutrient_id: id_nutr[7], min_score: 2, max_score: 3 },
-  { category_id: id_cat[2], nutrient_id: id_nutr[8], min_score: 3, max_score: 3 },
-
+  # Sleep
+  { category_id: id_cat[0], nutrient_id: id_nutr[0], min_score: 1, max_score: 4 },
+  { category_id: id_cat[0], nutrient_id: id_nutr[1], min_score: 3, max_score: 4 },
+  { category_id: id_cat[0], nutrient_id: id_nutr[2], min_score: 4, max_score: 4 },
+  # Stress
+  { category_id: id_cat[1], nutrient_id: id_nutr[3], min_score: 1, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[4], min_score: 3, max_score: 4 },
+  { category_id: id_cat[1], nutrient_id: id_nutr[5], min_score: 4, max_score: 4 },
+  # Energy
+  { category_id: id_cat[2], nutrient_id: id_nutr[6], min_score: 1, max_score: 4 },
+  { category_id: id_cat[2], nutrient_id: id_nutr[7], min_score: 3, max_score: 4 },
+  { category_id: id_cat[2], nutrient_id: id_nutr[8], min_score: 4, max_score: 4 },
+  # Heart
   { category_id: id_cat[3], nutrient_id: id_nutr[9], min_score: 1, max_score: 3 },
   { category_id: id_cat[3], nutrient_id: id_nutr[10], min_score: 2, max_score: 3 },
   { category_id: id_cat[3], nutrient_id: id_nutr[11], min_score: 3, max_score: 3 },
-
-  { category_id: id_cat[4], nutrient_id: id_nutr[12], min_score: 1, max_score: 3 },
-  { category_id: id_cat[4], nutrient_id: id_nutr[13], min_score: 2, max_score: 3 },
-  { category_id: id_cat[4], nutrient_id: id_nutr[14], min_score: 3, max_score: 3 }
+  # Cholesterol
+  { category_id: id_cat[4], nutrient_id: id_nutr[12], min_score: 1, max_score: 4 },
+  { category_id: id_cat[4], nutrient_id: id_nutr[13], min_score: 3, max_score: 4 },
+  { category_id: id_cat[4], nutrient_id: id_nutr[14], min_score: 4, max_score: 4 }
 ]
 
 category_nutrients.each do |category_nutrient|
-  CategoryNutrient.create!(
+  seeded_category_nutrient = CategoryNutrient.create!(
     min_score: category_nutrient[:min_score],
     max_score: category_nutrient[:max_score],
     category_id: category_nutrient[:category_id],
     nutrient_id: category_nutrient[:nutrient_id]
   )
+  puts "seeded category_nutrient #{seeded_category_nutrient.id}"
 end
