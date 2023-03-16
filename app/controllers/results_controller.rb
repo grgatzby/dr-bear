@@ -52,15 +52,16 @@ class ResultsController < ApplicationController
 
     # end of FoodData Central API call
 
-    quiz = Quiz.last
-    @categories = []
-    @categories_nutrients = []
-    quiz.categories.each do |category_name|
-      category = Category.find_by(name: category_name)
-      @categories << category
-      result = category.results.find_by(quiz_id: quiz.id)
-      @categories_nutrients << category_nutrient_ids(result)
-    end
+    @quiz = Quiz.last
+    category_from_quiz(@quiz)
+    # @categories = []
+    # @categories_nutrients = []
+    # quiz.categories.each do |category_name|
+    #   category = Category.find_by(name: category_name)
+    #   @categories << category
+    #   result = category.results.find_by(quiz_id: quiz.id)
+    #   @categories_nutrients << category_nutrient_ids(result)
+    # end
   end
 
   def show
@@ -109,7 +110,7 @@ class ResultsController < ApplicationController
           max_category_score += max_question_score
         end
       end
-      #create a Result instance for the category
+      # create a Result instance for the category
       Result.create!(
         total_score: category_score,
         max_score: max_category_score,
@@ -122,9 +123,10 @@ class ResultsController < ApplicationController
   end
 
   def basket
-    @result = Result.find(params[:id])
+    @quiz = Quiz.last
+    category_from_quiz(@quiz)
     @user = current_user
-    #TO DO : display of recommended nutrients or supplements and checkout
+    # TO DO : display of recommended nutrients or supplements and checkout
   end
 
   private
@@ -139,6 +141,18 @@ class ResultsController < ApplicationController
 
     @category = Category.find(cat_id)
     nutrient_arr = CategoryNutrient.where(category_id: @category.id).where("min_score <= ?", result_score).where("max_score >= ?", result_score)
-    nutrient_arr.map { |element| element.nutrient_id }
+    # nutrient_arr.map { |element| element.nutrient_id }
+    nutrient_arr.map(&:nutrient_id)
+  end
+
+  def category_from_quiz(quiz)
+    @categories = []
+    @categories_nutrients = []
+    quiz.categories.each do |category_name|
+      category = Category.find_by(name: category_name)
+      @categories << category
+      result = category.results.find_by(quiz_id: quiz.id)
+      @categories_nutrients << category_nutrient_ids(result)
+    end
   end
 end

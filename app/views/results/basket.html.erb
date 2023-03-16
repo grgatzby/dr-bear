@@ -1,6 +1,58 @@
-<div class="container">
+
+
+<div class="results-container">
   <h1>Welcome <%= @user.first_name %> <%= @user.last_name %></h1>
   <h2>Check your personnalised basket based on your Quiz results</h2>
-  <div class="flexify-box"><%= link_to "Back", result_path(@result.id), class: "btn btn-ghost"%></div>
-  <div class="flexify-box"><%= link_to "Select another quiz", categories_path, class: "btn btn-ghost"%></div>
+  <br>
+  <h5>Your quiz results</h5>
+  <% if @categories_nutrients.flatten.empty? %>
+    <h4 id="title-all-results">Based on your results, you are in good health, and no extra nutrient are recommended.</h4>
+  <% else %>
+    <h4 id="title-all-results">You may benefit from adding the following nutrients to your diet</h4>
+  <% end %>
+  <hr>
+  <div class="advice-text-container">
+    <%# TODO: WHEN THERE ARE NO RESULTS, THIS TITLE SHOULD DISAPPEAR %>
+    <h3 id="title-nutrient-results"></h3>
+  </div>
+
+  <div class="results-content-container">
+    <div class="total-nutrients-container">
+      <% @categories.each_with_index do |category, index| %>
+        <%= render "one_cat_result", category: category, nutrients: @categories_nutrients[index] %>
+      <% end %>
+    </div>
+    <br>
+    <br>
+    <% unless @categories_nutrients.flatten.empty? %>
+      <h4 class="categories-advice-title">Your responses revealed that you are experiencing difficulties with the following areas.</h4>
+      <hr>
+    <% end %>
+    <div class="total-categories-container">
+      <% @categories.each_with_index do |category, index| %>
+        <div class="one-category-content-container">
+          <!-- <% unsplash_url_2 = "https://source.unsplash.com/200x200/?#{category.name}-drawing" %>
+          <div class="image-categories-container-round">
+            <img src="<%= unsplash_url_2 %>" alt="Category image">
+          </div> -->
+          <div class="category-content-alltext">
+            <div class="category-name-container">
+              <p class="category-title-p">
+                <%= image_tag "dr-bear-cover.png" %> </i> <%= category.name %>
+              </p>
+            </div>
+            <div class="category-description-container">
+              <p>
+                <%= category.description %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <hr>
+      <% end %>
+    </div>
+
+  </div>
+  <div class="flexify-box"><%= link_to "Back", results_path, class: "btn btn-primary"%></div>
+  <div class="flexify-box"><%= link_to "Take another quiz", new_quiz_path, class: "btn btn-primary"%></div>
 </div>
