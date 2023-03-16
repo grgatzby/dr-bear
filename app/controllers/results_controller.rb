@@ -18,8 +18,8 @@ class ResultsController < ApplicationController
     query_input = "query=#{query}&dataType=#{data_source}&pageSize=#{num_results}&pageNumber=#{num_page}&sortBy=#{sort_by}&sortOrder=#{sort_order}&requireAllWords=#{all_words}"
     base_url = "https://api.nal.usda.gov/fdc/v1/foods/search?api_key="
     api_key = "aspXTzPYagPtfEmDa8Sj6iCRFbAGSjKAH6Xm7cSl&"
-    search_url = base_url+api_key+query_input
-    search_results = RestClient.get(search_url, headers={})
+    search_url = base_url + api_key + query_input
+    search_results = RestClient.get(search_url, headers = {})
     @results = JSON.parse(search_results)
     @food_item = @results["foods"]
 
@@ -29,7 +29,7 @@ class ResultsController < ApplicationController
     # @food_item.each do |food|
     #   food["foodNutrients"].each do |nutrient|
     #     if nutrient["nutrientNumber"] == nutri.nutri_code
-    #       @name.push([food["description"],nutrient["value"]])
+    #       @name.push([food["description"], nutrient["value"]])
     #     end
     #   end
     # end
@@ -47,21 +47,10 @@ class ResultsController < ApplicationController
     #     @final_name = name.join(", ")
     # end
 
-
-
-
     # end of FoodData Central API call
 
     @quiz = Quiz.last
     category_from_quiz(@quiz)
-    # @categories = []
-    # @categories_nutrients = []
-    # quiz.categories.each do |category_name|
-    #   category = Category.find_by(name: category_name)
-    #   @categories << category
-    #   result = category.results.find_by(quiz_id: quiz.id)
-    #   @categories_nutrients << category_nutrient_ids(result)
-    # end
   end
 
   def show
@@ -110,7 +99,7 @@ class ResultsController < ApplicationController
           max_category_score += max_question_score
         end
       end
-      # create a Result instance for the category
+      # creates a Result instance for the category
       Result.create!(
         total_score: category_score,
         max_score: max_category_score,
@@ -126,7 +115,7 @@ class ResultsController < ApplicationController
     @quiz = Quiz.last
     category_from_quiz(@quiz)
     @user = current_user
-    # TO DO : display of recommended nutrients or supplements and checkout
+    # TO DO (Ilan): display recommended nutrients for user to buy
   end
 
   private

@@ -3,7 +3,7 @@
     <img src="<%= image_path 'side-banner1.jpg' %>" alt="">
   </div>
   <div class="container-questions">
-    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="false">
+    <div id="carouselQuizzes" class="carousel carousel-dark slide" data-bs-ride="false" data-bs-wrap = "false">
       <%= simple_form_for [@quiz, @result] do |f|%>
         <div class="carousel-inner">
           <% @quiz.categories.each_with_index do |category_name, index| %>
@@ -18,10 +18,24 @@
           <% end %>
         </div>
       <% end %>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselQuizzes" data-bs-slide="next">
         <span class="carousel-control-next-icon" aria-hidden="true"></span>
         <span class="visually-hidden">Next</span>
       </button>
     </div>
   </div>
 </div>
+
+<script>
+  /* If you want to stop autoplay bootstrap carousel the use this code:
+  */
+   var quizCarousel = document.getElementById('carouselQuizzes');
+
+    quizCarousel.addEventListener('slid.bs.carousel', event => {
+      var carouselItems = quizCarousel.querySelectorAll(".carousel-item");
+      var lastItem = [...carouselItems].pop();
+      if (lastItem.classList.contains("active")) {
+        quizCarousel.querySelector(".carousel-control-next").style.display = 'none';
+      }
+    })
+</script>
