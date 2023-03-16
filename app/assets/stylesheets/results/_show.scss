@@ -1,6 +1,6 @@
 // BACKGROUND
 
-#title-all-results,
+
 #title-nutrient-results {
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
@@ -13,20 +13,21 @@
   justify-content: top;
   margin-top: 55px;
   padding: 3% 15% 5% 15%;
-  // OLD background-color: rgba(217, 239, 255, 1);
-  background: rgb(236,242,255);
-  background: radial-gradient(circle, rgba(236,242,255,0.6) 60%, rgba(210,199,255,0.6) 97%);
+  background-color: #FFF5E4;
+  // background: rgb(236,242,255);
+  // background: radial-gradient(circle, rgba(236,242,255,0.6) 60%, rgba(210,199,255,0.6) 97%);
   font-family: 'Montserrat', sans-serif;
   min-height: calc(100vh - 55px);
 }
 
 .results-container {
   h4 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 500;
     margin-bottom: 0px;
-    opacity: 0.8;
+    opacity: 0.9;
     color: grey;
+    font-family: 'Montserrat', sans-serif;
   }
 
   hr {
@@ -213,14 +214,26 @@
 }
 
 .category-title-p {
-  font-size: 1.2rem;
-  font-weight: 500;
+  font-size: 1.3rem;
+  font-weight: 600;
   opacity: 0.8;
   color: #342e6f;
+
+  img {
+    width: 25px;
+    height: 25px;
+    opacity: 0.9;
+  }
 }
 
 .category-description-container {
   color: #342e6f;
+
+  p {
+    font-size: 1.15rem;
+    font-weight: 500;
+    opacity: 0.8;
+  }
 }
 
 
