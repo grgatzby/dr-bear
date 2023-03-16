@@ -24,14 +24,4 @@
       <% end %>
       <hr>
     <% end %>
-
-    <!--
-    GC need to solve: user has to click submit (otherwise Result instances are not created and it bugs)
-    -->
-    <!-- for replacing ">" with go to "next_category"
-    -->
-    <% next_category = @quiz.categories[index + 1] || nil %>
-    <% last_quiz = index == @quiz.categories.length - 1 %>
-    <% btn_label = last_quiz ? "Submit"  : "Go to #{next_category}" %>
-
 </div>

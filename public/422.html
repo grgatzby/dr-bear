@@ -79,18 +79,39 @@
     background-color: #f1f1f1;
   }
 
+  .button-green{
+  /* Style for the Back button */
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 2rem;
+    color: white;
+    padding: 1rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  }
+
+
+  .button-green:hover {
+    background-color: #3e8e41;
+  }
 
   </style>
 </head>
 
 <body class="rails-default-error-page">
   <!-- This file lives in public/422.html -->
-  <div class="hit-the-floor">422</div>
   <div class="dialog">
+    <div class="hit-the-floor">422</div>
     <iframe src="https://giphy.com/embed/13en47d8J9l6pi" width="480" height="360" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/chris-farley-surprise-shock-13en47d8J9l6pi"></a></p>
     <div>
       <h1>The change you wanted was rejected.</h1>
       <p>Maybe you tried to change something you didn't have access to.</p>
+      <a href="/" class = "button-green">Back</a>
     </div>
     <p>If you are the application owner check the logs for more information.</p>
   </div>
