@@ -1,0 +1,87 @@
+@import url("https://use.fontawesome.com/releases/v5.13.0/css/all.css");
+
+
+.form-questions {
+  hr {
+    width: 80%;
+    left: 0;
+  }
+}
+
+.carousel-item {
+  margin-top: 80px;
+
+  h1 {
+    margin-bottom: 15px;
+    color: #24141F;
+    opacity: 0.8;
+  }
+
+  p {
+    margin-bottom: 15px;
+    color: #24141F;
+    opacity: 0.8;
+  }
+}
+
+.carousel-control-next-icon {
+  width: 80px;
+  height: 100%;
+}
+
+
+.form-question-box {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-check {
+  padding: 0;
+  text-align: center;
+}
+
+.form-check-label {
+  text-align: center;
+  margin-right: 5px;
+}
+
+.category-wrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.category-item {
+  flex: 0 0 30%;
+}
+
+.quiz-radio {
+  position: absolute;
+  transform: scale(0);
+}
+
+.quiz-radio + label {
+  display: block;
+  color: #7E73FF;
+  cursor: pointer;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100%;
+  font-size: 18px;
+  text-align: center;
+  padding: 8px 8px 8px 8px;
+  border: 1px solid #7E73FF;;
+  border-radius: 50px;
+  background-color: rgba(236, 234, 255, 0.7);
+  //box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px, rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+}
+
+.quiz-radio:checked + label {
+  color: white !important;
+  border: 1px solid #1bdbf8;
+  background-color: #7E73FF;
+}
+
+.btn-categories {
+  box-shadow: none;
+}
