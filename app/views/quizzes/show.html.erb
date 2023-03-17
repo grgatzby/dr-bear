@@ -29,13 +29,32 @@
 <script>
   /* If you want to stop autoplay bootstrap carousel the use this code:
   */
-   var quizCarousel = document.getElementById('carouselQuizzes');
+  var quizCarousel = document.getElementById('carouselQuizzes');
+  var carouselItems = quizCarousel.querySelectorAll(".carousel-item");
+  console.log("carouselItems.length");
+  console.log(carouselItems.length);
 
-    quizCarousel.addEventListener('slid.bs.carousel', event => {
-      var carouselItems = quizCarousel.querySelectorAll(".carousel-item");
-      var lastItem = [...carouselItems].pop();
+if (carouselItems.length == 1) {
+      var lastItem = carouselItems.item(0);
+
+      // console.log("carouselItems");
+      // console.log(carouselItems);
+      // console.log("lastItem");
+      // console.log(lastItem);
       if (lastItem.classList.contains("active")) {
-        quizCarousel.querySelector(".carousel-control-next").style.display = 'none';
-      }
-    })
+          quizCarousel.querySelector(".carousel-control-next").style.display = 'none';
+        }
+    } else {
+      quizCarousel.addEventListener('slid.bs.carousel', event => {
+        var lastItem = [...carouselItems].pop();
+
+        // console.log("carouselItems");
+        // console.log(carouselItems);
+        // console.log("lastItem");
+        // console.log(lastItem);
+        if (lastItem.classList.contains("active")) {
+          quizCarousel.querySelector(".carousel-control-next").style.display = 'none';
+        }
+        })
+    }
 </script>
