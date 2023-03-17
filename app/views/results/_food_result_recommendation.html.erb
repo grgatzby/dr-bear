@@ -15,9 +15,11 @@
   <%# display name of food per nutrient %>
   <% @result_name %>
 
+  <% replacements = [ ", raw", ", select", ", round", ", separable lean only", ", choice", ", bell"] %>
   <% @result_name.map do |name| %>
-
-    > <%= name.gsub(", raw","" ) %>
+    <% clean_name = name %>
+    <% replacements.each {|replacement| clean_name.gsub!(replacement, "")} %>
+    <%= clean_name %>
 
     <br/>
   <% end %>
