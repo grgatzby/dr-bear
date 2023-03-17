@@ -1,5 +1,5 @@
 meta_product_name: "Dr Bear"
 meta_title: "Dr Bear - Vital Vitamins"
 meta_description: "Daily vitamin supplements in gummy bear form"
-meta_image: "dr-bear-cover.png" # should exist in `app/assets/images/`
+meta_image: "dr-bear-cover-large.png" # should exist in `app/assets/images/`
 # twitter_account: "@product_twitter_account"   # required for Twitter Cards
